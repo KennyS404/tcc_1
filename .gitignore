@@ -1,0 +1,36 @@
+# Arquivos temporários do LaTeX
+*.aux
+*.log
+*.out
+*.toc
+*.bcf
+*.run.xml
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.blg
+*.bbl
+*.idx
+*.ind
+*.ilg
+*.lof
+*.lot
+*.lol
+
+# Arquivos do sistema
+.DS_Store
+__MACOSX/
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Arquivos temporários
+*~
+*.bak
+*.tmp
+

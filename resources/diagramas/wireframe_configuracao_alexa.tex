@@ -1,0 +1,51 @@
+% Wireframe - Configuração da Integração Alexa
+\begin{figura}{Wireframes - Configuração da integração Alexa no aplicativo Pollen}{O Autor}
+\centering
+\begin{tikzpicture}[scale=0.9]
+% Definição de estilos
+\tikzset{
+  phone/.style={rectangle, draw, fill=gray!10, text width=3cm, text centered, minimum height=6cm},
+  header/.style={rectangle, draw, fill=blue!20, text width=2.8cm, text centered, minimum height=0.6cm},
+  button/.style={rectangle, draw, fill=green!30, text width=2.6cm, text centered, minimum height=0.5cm},
+  text/.style={rectangle, draw, fill=white, text width=2.6cm, text centered, minimum height=0.4cm},
+  switch/.style={rectangle, draw, fill=yellow!30, text width=2.6cm, text centered, minimum height=0.4cm}
+}
+
+% Tela 1: Configuração Inicial
+\node[phone] (tela1) at (0,0) {};
+\node[header] (header1) at (0,2.5) {\textbf{Configuração Alexa}};
+\node[text] (text1) at (0,1.8) {Conecte sua conta Pollen\\com a Amazon Alexa};
+\node[button] (btn1) at (0,1.2) {Conectar com Alexa};
+\node[text] (text2) at (0,0.6) {Status: Não conectado};
+\node[text] (text3) at (0,0.2) {Comandos disponíveis:\\• Consultar enxames\\• Registrar alimentação\\• Verificar colheita};
+\node[button] (btn2) at (0,-0.4) {Próximo};
+\node[button] (btn3) at (0,-0.9) {Cancelar};
+
+% Tela 2: Autorização
+\node[phone] (tela2) at (4,0) {};
+\node[header] (header2) at (4,2.5) {\textbf{Autorização}};
+\node[text] (text4) at (4,1.8) {A Alexa precisa de permissão\\para acessar seus dados};
+\node[switch] (switch1) at (4,1.2) {$\checkmark$ Ler enxames};
+\node[switch] (switch2) at (4,0.8) {$\checkmark$ Registrar alimentação};
+\node[switch] (switch3) at (4,0.4) {$\checkmark$ Consultar colheita};
+\node[switch] (switch4) at (4,0.0) {$\checkmark$ Acessar dashboard};
+\node[button] (btn4) at (4,-0.6) {Autorizar};
+\node[button] (btn5) at (4,-1.1) {Voltar};
+
+% Tela 3: Configuração de Comandos
+\node[phone] (tela3) at (8,0) {};
+\node[header] (header3) at (8,2.5) {\textbf{Comandos de Voz}};
+\node[text] (text5) at (8,1.8) {Configure como falar\\com a Alexa};
+\node[text] (text6) at (8,1.2) {Exemplo: \textquotedblleft Alexa, pergunte\\ao Pollen sobre meus\\enxames\textquotedblright};
+\node[text] (text7) at (8,0.6) {Comandos ativos:\\• Status do enxame\\• Registrar alimentação\\• Verificar colheita};
+\node[button] (btn6) at (8,0.0) {Testar Comando};
+\node[button] (btn7) at (8,-0.5) {Finalizar};
+\node[button] (btn8) at (8,-1.0) {Voltar};
+
+% Setas de navegação
+\draw[->] (tela1) -- node[above] {Próximo} (tela2);
+\draw[->] (tela2) -- node[above] {Autorizar} (tela3);
+
+\end{tikzpicture}
+\label{fig:wireframe-configuracao-alexa}
+\end{figura}

@@ -1,0 +1,147 @@
+\capitulo{Introdução}
+\label{cap:introducao}
+
+A Amazon Alexa é uma das assistentes virtuais mais utilizadas no mundo, estando presente em mais de 100 milhões de dispositivos. 
+Os dispositivos da linha Echo são os mais comuns para uso pessoal, oferecendo uma interface de voz natural para interação com diversos serviços. 
+No Brasil, o uso da Alexa cresceu 50\% em 2023, com mais de 2 bilhões de comandos de voz executados pelos usuários brasileiros, 
+demonstrando a rápida adoção desta tecnologia no país \cite{forbes2024}. Uma das funcionalidades oferecidas pela Alexa é o ecossistema ``Alexa Skills'', 
+que permite que desenvolvedores terceiros criem funcionalidades personalizadas e as disponibilizem para usuários finais através de comandos de voz.
+
+No contexto da apicultura moderna, a gestão de colmeias tem se tornado cada vez mais tecnológica, com aplicações móveis oferecendo funcionalidades 
+para controle de produção, manejo de enxames, registro de colheitas e monitoramento de saúde das abelhas. 
+O aplicativo Pollen: Gestão de Colmeias representa uma solução consolidada neste segmento, oferecendo uma plataforma completa para apicultores 
+gerenciarem suas operações de forma eficiente.
+
+Assim sendo, este trabalho propõe o planejamento de uma integração entre o assistente virtual Alexa e o aplicativo Pollen, 
+permitindo que apicultores consultem informações sobre suas colmeias através de comandos de voz naturais. 
+A integração planejada visa facilitar o acesso a dados importantes durante o trabalho no apiário e meliponário, onde o uso de dispositivos móveis pode ser limitado, dado que o apicultor/meliponicultor precisa usar equipamentos de proteção individual e manter as mãos livres para manipulação das colmeias.
+A necessidade desta integração foi validada através de pesquisa preliminar realizada com usuários do aplicativo Pollen, onde 100\% dos respondentes manifestaram interesse na integração com assistentes virtuais.
+
+
+\secao{Delimitação do tema de pesquisa}
+\label{sec:delimitacao-tema-pesquisa}
+
+Este estudo propõe o planejamento de uma integração entre o assistente virtual Amazon Alexa e o aplicativo Pollen: Gestão de Colmeias, 
+permitindo consultas por voz sobre dados apícolas. O projeto será planejado através da criação de uma Alexa Skill personalizada 
+que se comunicará com a API do aplicativo Pollen para fornecer informações sobre colmeias, produção de mel, atividades de manejo e estatísticas e lembretes de manutenção da colmeia.
+
+Para o planejamento da integração, será utilizada a plataforma Amazon Alexa Skills Kit, 
+que oferece ferramentas e APIs para criação de skills personalizadas. A skill será planejada para ser desenvolvida utilizando Node.js 
+e hospedada como uma função AWS Lambda, garantindo escalabilidade e confiabilidade no processamento das requisições.
+
+A comunicação entre a Alexa Skill e o aplicativo Pollen será planejada para ser realizada através de chamadas HTTP para a API RESTful existente, 
+utilizando autenticação JWT para garantir a segurança dos dados. A skill permitirá consultas sobre informações como 
+número de colmeias, produção de mel, status dos enxames, próximas atividades de manejo e estatísticas de produtividade.
+
+O planejamento seguirá as melhores práticas de desenvolvimento de Alexa Skills, incluindo o uso de intents bem definidos, 
+utterances em português brasileiro e respostas em formato SSML para melhor experiência do usuário. 
+
+\textbf{Intents} representam as intenções do usuário, ou seja, o que ele deseja fazer (ex: consultar enxames, registrar alimentação). 
+\textbf{Utterances} são as diferentes formas como o usuário pode expressar uma intenção através de comandos de voz naturais 
+(ex: "Alexa, pergunte ao Pollen sobre meus enxames" ou "Alexa, quantos enxames eu tenho?"). 
+\textbf{SSML} (Speech Synthesis Markup Language) é uma linguagem de marcação que permite controlar a síntese de voz, 
+melhorando a pronúncia e entonação das respostas da Alexa.
+
+O projeto será planejado para ser testado com usuários reais do aplicativo Pollen para validar a usabilidade e eficácia da integração.
+
+
+
+
+\secao{Problema de pesquisa e justificativa}
+\label{sec:problema-pesquisa-justificativa}
+
+A integração de assistentes virtuais com aplicações de gestão empresarial tem se tornado cada vez mais comum, 
+oferecendo interfaces de voz naturais para acesso a informações importantes. No entanto, a implementação dessa tecnologia no setor apícola 
+ainda é limitada, especialmente no contexto brasileiro, onde a apicultura representa uma atividade econômica significativa.
+
+Segundo Silva et al. (2021), o setor apícola brasileiro, apesar de possuir boas características de clima e flora propícias para o desenvolvimento, 
+sofre com limitações no uso de ferramentas tecnológicas, o que afeta diretamente os níveis de produção. Os autores destacam que 
+"o desenvolvimento tecnológico limitado do setor apícola, contando com pouca inovação na utilização de ferramentas e métodos produtivos, 
+afeta diretamente a produção tanto em volume como em qualidade", revelando uma deficiência significativa na gestão básica de sistemas produtivos.
+
+O problema central desta pesquisa reside na necessidade de facilitar o acesso a informações sobre colmeias durante o trabalho no apiário, 
+onde o uso de dispositivos móveis pode ser limitado devido às condições de trabalho, uso de equipamentos de proteção individual 
+e necessidade de manter as mãos livres para manipulação das colmeias. Atualmente, apicultores precisam interromper suas atividades 
+para consultar informações no aplicativo móvel, o que pode impactar a eficiência do trabalho.
+
+A implementação de uma integração com Alexa poderá auxiliar apicultores a acessar informações importantes sobre suas colmeias 
+através de comandos de voz simples, permitindo consultas sobre produção de mel, status dos enxames, próximas atividades de manejo 
+e estatísticas de produtividade sem interromper o fluxo de trabalho. Esta solução representa uma inovação no setor apícola, 
+oferecendo uma interface mais natural e eficiente para gestão de colmeias. 
+
+A necessidade de ferramentas tecnológicas no setor apícola é corroborada por Silva et al. (2021), que desenvolveram um sistema baseado em 
+machine learning para apoio à decisão no gerenciamento de produção apícola, demonstrando que "torna-se importante o uso de mecanismos de 
+ordenamento, gestão e tomada de decisão" para uma melhor organização das atividades decorrentes da apicultura. A validação desta necessidade 
+foi confirmada através de pesquisa realizada com usuários do aplicativo Pollen, onde 100\% dos respondentes manifestaram interesse na integração, 
+demonstrando a relevância e potencial de adoção da solução proposta.
+
+Além disso, a integração com assistentes virtuais pode contribuir para a modernização da apicultura, 
+tornando a tecnologia mais acessível e intuitiva para apicultores de diferentes níveis de familiaridade com dispositivos digitais, 
+promovendo a adoção de ferramentas de gestão tecnológica no setor.
+
+
+
+\secao{Objetivos}
+\label{sec:objetivos}
+Nesta seção serão abordados os objetivos gerais e específicos a serem buscados no decorrer da execução do trabalho proposto.
+
+\subsecao{Objetivo geral}
+\label{ssec:objetivo-geral}
+
+Propor o planejamento de uma integração entre o assistente virtual Amazon Alexa e o aplicativo Pollen: Gestão de Colmeias, permitindo consultas por voz sobre dados apícolas e facilitando o acesso a informações durante o trabalho no apiário.
+
+\subsecao{Objetivos específicos}
+\label{ssec:objetivos-especificos}
+
+Os objetivos específicos do projeto seguem a ordem cronológica de execução das atividades, conforme descrito a seguir:
+
+\begin{itemize}
+    \item Analisar a arquitetura e funcionalidades do aplicativo Pollen para identificar dados que podem ser consultados via voz.
+    
+    \item Planejar o desenvolvimento de uma Alexa Skill personalizada utilizando o Amazon Alexa Skills Kit e Node.js.
+
+    \item Propor o planejamento da comunicação entre a Alexa Skill e a API do aplicativo Pollen utilizando autenticação JWT.
+
+    \item Definir intents e utterances em português brasileiro para consultas sobre colmeias, produção de mel e atividades de manejo.
+
+    \item Planejar a implementação de respostas em formato SSML para melhor experiência do usuário com a assistente virtual.
+
+    \item Propor metodologia de testes da integração com usuários reais do aplicativo Pollen para validar a usabilidade e eficácia da solução.
+\end{itemize}
+
+No Quadro 1 apresentam-se os verbos que auxiliam na formulação dos objetivos.
+
+\begin{quadro}{Verbos que auxiliam na construção de objetivos}{Adaptado do Manual de Orientações Metodológicas do Centro Universitário de Jaraguá do Sul – UNERJ}
+\label{quad:verbos-objetivos}
+\renewcommand{\arraystretch}{1.3}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \textbf{Conhecimento} & \textbf{Compreensão} & \textbf{Aplicação} & \textbf{Análise} & \textbf{Síntese} & \textbf{Avaliação} \\ \hline
+    Definir & Compreender & Resolver & Identificar & Narrar & Sustentar \\
+    Enunciar & Codificar & Interpretar & Distinguir & Expor & Justificar \\
+    Citar & Deduzir & Expor & Descrever & Explicar & Criticar \\
+    Relatar & Converter & Redigir & Diferenciar & Sumariar & Valorizar \\
+    Referir & Descrever & Explicar & Relacionar & Esquematizar & Escolher \\
+    Detalhar & Identificar & Usar & Separar & Compilar & Selecionar \\
+    Expor & Definir & Manejar & Decompor & Construir & Verificar \\
+    Identificar & Demonstrar & Aplicar & Examinar & Formular & Constatar \\
+    Indicar & Distinguir & Empregar & Localizar & Compor & Comprovar \\
+    Marcar & Interpretar & Utilizar & Abstrair & Projetar & Estimar \\
+    Sublinhar & Explicar & Comprovar & Discriminar & Simplificar & Medir \\
+    Enumerar & Expor & Demonstrar & Detalhar & Classificar & Revisar \\
+    Listar & Exemplificar & Produzir & Detectar & Agrupar & Eleger \\
+    Registrar & Concretizar & Praticar & Omitir & Distribuir & Decidir \\
+    Especificar & Narrar & Relacionar & Dividir & Modificar & Concluir \\
+    Mostrar & Argumentar & Dramatizar & Especificar & Reacomodar & Precisar \\
+    Distinguir & Decodificar & Discriminar & Descobrir & Combinar & Provar \\
+    Reconhecer & Relacionar & Representar & Reorganizar & Gerar & Comparar \\
+    Definir & Extrapolar & Traçar & Estruturar & Opinar & Avaliar \\
+    Organizar & Opinar & Localizar & Planejar & Demonstrar & Categorizar \\
+    & Predizer & Operar & Conceber & Contrastar & Fundamentar \\
+    & Generalizar & Ilustrar & Programar & Julgar & \\
+    & Resumir & & & & \\
+\hline
+\end{tabular}
+}
+\end{quadro}

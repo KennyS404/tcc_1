@@ -1,0 +1,58 @@
+% Diagrama de Caso de Uso - Integração Alexa com Pollen
+\begin{figura}{Diagrama de Caso de Uso - Integração Alexa com Sistema Pollen}{O Autor}
+\centering
+\begin{tikzpicture}[scale=0.8]
+% Definição de estilos
+\tikzset{
+  actor/.style={rectangle, draw, fill=blue!20, text width=2cm, text centered, minimum height=1cm},
+  usecase/.style={ellipse, draw, fill=yellow!20, text width=2.5cm, text centered, minimum height=0.8cm},
+  system/.style={rectangle, draw, fill=green!20, text width=8cm, text centered, minimum height=6cm}
+}
+
+% Sistema Pollen
+\node[system] (sistema) at (0,0) {\textbf{Sistema Pollen + Alexa}};
+
+% Atores
+\node[actor] (apicultor) at (-6,3) {Apicultor};
+\node[actor] (alexa) at (6,3) {Amazon Alexa};
+
+% Casos de uso principais
+\node[usecase] (consultar_status) at (-3,2) {Consultar Status\\do Enxame};
+\node[usecase] (registrar_alimentacao) at (0,2) {Registrar\\Alimentação};
+\node[usecase] (verificar_colheita) at (3,2) {Verificar\\Colheita};
+\node[usecase] (consultar_manejo) at (-3,0) {Consultar\\Manejo};
+\node[usecase] (registrar_revisao) at (0,0) {Registrar\\Revisão};
+\node[usecase] (consultar_dashboard) at (3,0) {Consultar\\Dashboard};
+\node[usecase] (configurar_alexa) at (-3,-2) {Configurar\\Integração Alexa};
+\node[usecase] (gerenciar_comandos) at (0,-2) {Gerenciar\\Comandos de Voz};
+\node[usecase] (sincronizar_dados) at (3,-2) {Sincronizar\\Dados};
+
+% Relacionamentos com Apicultor
+\draw[->] (apicultor) -- (consultar_status);
+\draw[->] (apicultor) -- (registrar_alimentacao);
+\draw[->] (apicultor) -- (verificar_colheita);
+\draw[->] (apicultor) -- (consultar_manejo);
+\draw[->] (apicultor) -- (registrar_revisao);
+\draw[->] (apicultor) -- (consultar_dashboard);
+\draw[->] (apicultor) -- (configurar_alexa);
+\draw[->] (apicultor) -- (gerenciar_comandos);
+
+% Relacionamentos com Alexa
+\draw[->] (alexa) -- (consultar_status);
+\draw[->] (alexa) -- (registrar_alimentacao);
+\draw[->] (alexa) -- (verificar_colheita);
+\draw[->] (alexa) -- (consultar_manejo);
+\draw[->] (alexa) -- (registrar_revisao);
+\draw[->] (alexa) -- (consultar_dashboard);
+\draw[->] (alexa) -- (sincronizar_dados);
+
+% Relacionamentos de dependência entre casos de uso
+\draw[->, dashed] (configurar_alexa) -- (gerenciar_comandos);
+\draw[->, dashed] (gerenciar_comandos) -- (sincronizar_dados);
+\draw[->, dashed] (sincronizar_dados) -- (consultar_status);
+\draw[->, dashed] (sincronizar_dados) -- (registrar_alimentacao);
+\draw[->, dashed] (sincronizar_dados) -- (verificar_colheita);
+
+\end{tikzpicture}
+\label{fig:caso-uso-alexa}
+\end{figura}

@@ -1,0 +1,184 @@
+\capitulo{Apresentação da Solução}
+\label{cap:apresentacao-solucao}
+
+Este capítulo apresenta o planejamento da solução proposta para integração entre Amazon Alexa e o aplicativo Pollen, incluindo os requisitos funcionais e não funcionais planejados, os diagramas de modelagem conceitual do sistema planejado, os wireframes das interfaces propostas e os artefatos de planejamento desenvolvidos.
+
+\secao{Requisitos do Sistema}
+\label{sec:requisitos-sistema}
+
+Esta seção apresenta os requisitos funcionais e não funcionais planejados para a integração Alexa+Pollen, baseados na análise das necessidades dos apicultores usuários do aplicativo Pollen.
+
+\subsecao{Requisitos Funcionais}
+
+Os requisitos funcionais especificam as funcionalidades que o sistema deve oferecer para atender às necessidades dos usuários, baseados na pesquisa preliminar realizada com usuários do aplicativo Pollen:
+
+\begin{itemize}
+    \item \textbf{RF001 - Autenticação}: O sistema deve permitir que usuários autentiquem-se na Skill utilizando suas credenciais do aplicativo Pollen
+    \item \textbf{RF002 - Consulta de Enxames}: O sistema deve permitir consultar informações sobre os enxames do usuário através de comandos de voz
+    \item \textbf{RF003 - Consulta de Idade da Rainha}: O sistema deve permitir consultar a idade da rainha de enxames específicos
+    \item \textbf{RF004 - Consulta de Força do Enxame}: O sistema deve permitir verificar a força/estado do enxame
+    \item \textbf{RF005 - Consulta de Data da Última Divisão}: O sistema deve permitir consultar quando foi realizada a última divisão do enxame
+    \item \textbf{RF006 - Consulta por Espécie}: O sistema deve permitir consultar quantidade de enxames e produção de mel por espécie específica
+    \item \textbf{RF007 - Notificações e Lembretes}: O sistema deve fornecer lembretes de manutenção da colmeia e alimentação
+    \item \textbf{RF008 - Registro de Localização}: O sistema deve permitir registrar a localização do Meliponário
+    \item \textbf{RF009 - Passo a Passo de Cuidados}: O sistema deve fornecer orientações passo a passo sobre cuidados com a colmeia
+    \item \textbf{RF010 - Registro de Divisões}: O sistema deve permitir registrar datas de divisões realizadas
+    \item \textbf{RF011 - Dashboard Resumido}: O sistema deve fornecer um resumo geral do apiário do usuário
+    \item \textbf{RF012 - Comandos de Ajuda}: O sistema deve fornecer ajuda sobre comandos disponíveis
+    \item \textbf{RF013 - Configuração de Usuário}: O sistema deve permitir configurar preferências do usuário
+\end{itemize}
+
+\subsecao{Requisitos Não Funcionais}
+
+Os requisitos não funcionais definem as restrições e qualidades que o sistema deve possuir:
+
+\begin{itemize}
+    \item \textbf{RNF001 - Performance}: O sistema deve responder a comandos de voz em no máximo 3 segundos
+    \item \textbf{RNF002 - Disponibilidade}: O sistema deve manter 99\% de uptime
+    \item \textbf{RNF003 - Segurança}: O sistema deve utilizar autenticação JWT e comunicação HTTPS
+    \item \textbf{RNF004 - Usabilidade}: O sistema deve reconhecer comandos em português brasileiro com 90\% de precisão
+    \item \textbf{RNF005 - Escalabilidade}: O sistema deve suportar até 1000 usuários simultâneos
+    \item \textbf{RNF006 - Compatibilidade}: O sistema deve funcionar com dispositivos Amazon Echo (2ª geração ou superior)
+    \item \textbf{RNF007 - Manutenibilidade}: O código deve seguir padrões de desenvolvimento e documentação
+    \item \textbf{RNF008 - Confiabilidade}: O sistema deve tratar erros graciosamente e fornecer feedback adequado
+\end{itemize}
+
+\secao{Modelagem do Sistema}
+\label{sec:modelagem-sistema}
+
+Esta seção apresenta os diagramas de modelagem conceitual planejados para a integração Alexa+Pollen, seguindo as etapas do modelo em cascata para o planejamento do sistema.
+
+\subsecao{Diagrama de Caso de Uso}
+
+O Diagrama de Caso de Uso apresenta as interações entre os atores (Apicultor e Amazon Alexa) e o sistema, definindo as funcionalidades principais da integração.
+
+\input{resources/diagramas/diagrama_caso_uso_alexa.tex}
+
+Conforme apresentado na Figura \ref{fig:caso-uso-alexa}, o sistema permite que apicultores interajam com o aplicativo Pollen através de comandos de voz, realizando consultas e registros de atividades apícolas de forma hands-free.
+
+\subsecao{Diagrama de Entidade e Relacionamento (DER)}
+
+O DER apresenta o modelo de dados simplificado, focando nas entidades relevantes para a integração Alexa.
+
+\input{resources/diagramas/der_simplificado_alexa.tex}
+
+A Figura \ref{fig:der-alexa} mostra as principais entidades do banco de dados Pollen que serão acessadas pela Skill Alexa, incluindo User, Enxame, Alimentacao, Colheita, Manejo, Revisao e Dashboard.
+
+\subsecao{Modelo Conceitual do Banco de Dados}
+
+O modelo conceitual apresenta a estrutura das tabelas de forma mais detalhada, incluindo os campos principais.
+
+\input{resources/diagramas/modelo_conceitual_banco.tex}
+
+Conforme ilustrado na Figura \ref{fig:modelo-conceitual-banco}, o modelo conceitual define as tabelas e seus campos principais, estabelecendo os relacionamentos entre as entidades.
+
+\subsecao{Modelo Lógico do Banco de Dados}
+
+O modelo lógico apresenta a implementação física das tabelas, incluindo tipos de dados e restrições.
+
+\input{resources/diagramas/modelo_logico_banco.tex}
+
+A Figura \ref{fig:modelo-logico-banco} detalha a estrutura física das tabelas, incluindo tipos de dados, chaves primárias e estrangeiras, e restrições de integridade.
+
+\subsecao{Diagrama de Classes}
+
+O diagrama de classes apresenta a arquitetura da Skill Alexa e sua integração com o sistema Pollen.
+
+\input{resources/diagramas/diagrama_classes_alexa.tex}
+
+Conforme mostrado na Figura \ref{fig:classes-alexa}, a arquitetura segue o padrão de handlers para diferentes intents, com comunicação via API REST para acessar os dados do Pollen.
+
+\secao{Interfaces do Sistema}
+\label{sec:interfaces-sistema}
+
+Esta seção apresenta os wireframes das interfaces de configuração da integração Alexa no aplicativo Pollen.
+
+\subsecao{Wireframes de Configuração}
+
+Os wireframes apresentam o fluxo de configuração da integração Alexa no aplicativo Pollen.
+
+\input{resources/diagramas/wireframe_configuracao_alexa.tex}
+
+A Figura \ref{fig:wireframe-configuracao-alexa} mostra o fluxo de configuração, incluindo autorização, configuração de comandos e teste da integração.
+
+\subsecao{Wireframes de Comandos}
+
+Os wireframes de comandos apresentam a interface para gerenciar os comandos de voz disponíveis.
+
+\input{resources/diagramas/wireframe_comandos_alexa.tex}
+
+Conforme apresentado na Figura \ref{fig:wireframe-comandos-alexa}, os usuários podem visualizar, testar e configurar os comandos de voz disponíveis na integração.
+
+\secao{Processos do Sistema}
+\label{sec:processos-sistema}
+
+Esta seção apresenta o BPMN do processo de execução de comandos de voz na integração Alexa.
+
+\subsecao{BPMN de Comandos de Voz}
+
+O BPMN apresenta o fluxo completo de processamento de comandos de voz, desde a captura até a resposta.
+
+\input{resources/diagramas/bpmn_comandos_voz.tex}
+
+A Figura \ref{fig:bpmn-comandos-voz} detalha o processo de execução de comandos de voz, incluindo validação, autenticação, processamento e geração de respostas.
+
+\secao{Artefatos Práticos Desenvolvidos}
+\label{sec:artefatos-praticos}
+
+Esta seção apresenta os artefatos práticos planejados para o desenvolvimento da integração Alexa+Pollen.
+
+\subsecao{Arquitetura da Solução}
+
+A solução planejada seguirá uma arquitetura baseada em microserviços, com os seguintes componentes principais:
+
+\begin{itemize}
+    \item \textbf{Alexa Skill}: Será desenvolvida em Node.js/TypeScript, hospedada em AWS Lambda
+    \item \textbf{API Pollen}: API RESTful existente, desenvolvida em NestJS
+    \item \textbf{Banco de Dados}: PostgreSQL, hospedado no Supabase
+    \item \textbf{Autenticação}: JWT tokens para segurança
+    \item \textbf{Comunicação}: HTTPS para todas as comunicações
+\end{itemize}
+
+\subsecao{Implementação da Skill}
+
+A Skill Alexa será planejada para ser implementada seguindo as melhores práticas de desenvolvimento:
+
+\begin{itemize}
+    \item \textbf{Intents}: Serão definidos para cada funcionalidade (ConsultaEnxames, RegistroAlimentacao, etc.)
+    \item \textbf{Utterances}: Exemplos de comandos em português brasileiro
+    \item \textbf{Handlers}: Classes especializadas para processar cada tipo de comando
+    \item \textbf{Validação}: Verificação de dados e tratamento de erros
+    \item \textbf{SSML}: Formatação de respostas para melhor experiência de voz
+\end{itemize}
+
+\subsecao{Integração com API Pollen}
+
+A integração com a API Pollen será planejada para ser implementada utilizando:
+
+\begin{itemize}
+    \item \textbf{HTTP Client}: Axios para chamadas HTTP
+    \item \textbf{Autenticação JWT}: Tokens de acesso para segurança
+    \item \textbf{Error Handling}: Tratamento robusto de erros de API
+    \item \textbf{Rate Limiting}: Controle de taxa de requisições
+    \item \textbf{Retry Logic}: Tentativas automáticas em caso de falha
+\end{itemize}
+
+\subsecao{Testes Implementados}
+
+Os testes serão planejados para serem implementados utilizando Jest e incluirão:
+
+\begin{itemize}
+    \item \textbf{Testes Unitários}: Planejados para 95\% de cobertura de código
+    \item \textbf{Testes de Integração}: Validação da comunicação com API
+    \item \textbf{Testes de Aceitação}: Validação com usuários reais
+    \item \textbf{Testes de Performance}: Validação de tempos de resposta
+    \item \textbf{Testes de Segurança}: Validação de autenticação e autorização
+\end{itemize}
+
+\secao{Considerações Finais}
+
+A solução planejada representa uma integração inovadora entre assistentes virtuais e aplicações de gestão apícola, oferecendo aos apicultores uma forma eficiente e hands-free de acessar informações sobre suas colmeias.
+
+Os artefatos apresentados demonstram a viabilidade técnica da integração proposta, com arquitetura robusta planejada, interfaces intuitivas e processos bem definidos. O planejamento segue as melhores práticas de desenvolvimento de software e oferece uma base sólida para futuras expansões e melhorias.
+
+A solução planejada atende aos requisitos funcionais e não funcionais definidos, proporcionando uma experiência de usuário satisfatória e contribuindo para a eficiência da gestão apícola através de comandos de voz naturais.

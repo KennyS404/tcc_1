@@ -1,0 +1,36 @@
+\usepackage{adjustbox}
+\usepackage[labelfont=bf,labelsep=colon,justification=raggedright,singlelinecheck=false]{caption}
+%h\usepackage[backend=biber, style=authoryear]{biblatex}
+
+% bibliotecas para tabelas
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{colortbl}
+\usepackage{tabularx}
+\usepackage{graphicx}
+
+% lib para simbolos matematicos
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{enumitem}
+\RequirePackage{etoolbox}
+% formatação
+%\renewcommand{\arraystretch}{0.75}
+\setlength\arrayrulewidth{0.5pt}
+\setlength\tabcolsep{2ex}
+
+\input{resources/floats/tipos-ilustracoes}
+\input{resources/terms/acronimos}
+
+\addbibresource{resources/bibliography.bib}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning, shapes.geometric, arrows.meta}
+\tikzstyle{caixa} = [rectangle, draw, fill=green!10, text centered, minimum height=1.2cm, minimum width=2.5cm]
+\tikzstyle{categoria} = [rectangle, draw, fill=red!20, text centered, minimum height=1.2cm, minimum width=3.5cm]
+\tikzstyle{seta} = [->, thick]
+
+\usepackage{pdflscape}  % ou graphicx + rotating
+
+
