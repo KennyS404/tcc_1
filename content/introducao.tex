@@ -18,36 +18,7 @@ A integração planejada visa facilitar o acesso a dados importantes durante o t
 A necessidade desta integração foi validada através de pesquisa preliminar realizada com usuários do aplicativo Pollen, onde 100\% dos respondentes manifestaram interesse na integração com assistentes virtuais.
 
 
-\secao{Delimitação do tema de pesquisa}
-\label{sec:delimitacao-tema-pesquisa}
-
-Este estudo propõe o planejamento de uma integração entre o assistente virtual Amazon Alexa e o aplicativo Pollen: Gestão de Colmeias, 
-permitindo consultas por voz sobre dados apícolas. O projeto será planejado através da criação de uma Alexa Skill personalizada 
-que se comunicará com a API do aplicativo Pollen para fornecer informações sobre colmeias, produção de mel, atividades de manejo e estatísticas e lembretes de manutenção da colmeia.
-
-Para o planejamento da integração, será utilizada a plataforma Amazon Alexa Skills Kit, 
-que oferece ferramentas e APIs para criação de skills personalizadas. A skill será planejada para ser desenvolvida utilizando Node.js 
-e hospedada como uma função AWS Lambda, garantindo escalabilidade e confiabilidade no processamento das requisições.
-
-A comunicação entre a Alexa Skill e o aplicativo Pollen será planejada para ser realizada através de chamadas HTTP para a API RESTful existente, 
-utilizando autenticação JWT para garantir a segurança dos dados. A skill permitirá consultas sobre informações como 
-número de colmeias, produção de mel, status dos enxames, próximas atividades de manejo e estatísticas de produtividade.
-
-O planejamento seguirá as melhores práticas de desenvolvimento de Alexa Skills, incluindo o uso de intents bem definidos, 
-utterances em português brasileiro e respostas em formato SSML para melhor experiência do usuário. 
-
-\textbf{Intents} representam as intenções do usuário, ou seja, o que ele deseja fazer (ex: consultar enxames, registrar alimentação). 
-\textbf{Utterances} são as diferentes formas como o usuário pode expressar uma intenção através de comandos de voz naturais 
-(ex: "Alexa, pergunte ao Pollen sobre meus enxames" ou "Alexa, quantos enxames eu tenho?"). 
-\textbf{SSML} (Speech Synthesis Markup Language) é uma linguagem de marcação que permite controlar a síntese de voz, 
-melhorando a pronúncia e entonação das respostas da Alexa.
-
-O projeto será planejado para ser testado com usuários reais do aplicativo Pollen para validar a usabilidade e eficácia da integração.
-
-
-
-
-\secao{Problema de pesquisa e justificativa}
+\secao{Problema e justificativa}
 \label{sec:problema-pesquisa-justificativa}
 
 A integração de assistentes virtuais com aplicações de gestão empresarial tem se tornado cada vez mais comum, 

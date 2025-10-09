@@ -35,17 +35,6 @@ No contexto da agricultura de precisão, a integração de assistentes virtuais 
 
 A integração entre assistentes virtuais e APIs RESTful representa uma arquitetura robusta e escalável para desenvolvimento de soluções personalizadas. A utilização de autenticação JWT garante segurança na comunicação entre sistemas, enquanto o uso de funções serverless (como AWS Lambda) proporciona escalabilidade automática e redução de custos operacionais.
 
-\subsecao{Soluções Similares}
-\label{ssec:solucoes-similares}
-
-A análise de soluções similares no mercado revela algumas implementações relevantes para o contexto deste trabalho. Embora não existam integrações específicas entre Alexa e aplicações de gestão apícola, há casos de sucesso em domínios relacionados que podem servir como referência.
-
-O aplicativo "FarmLogs" integra assistentes virtuais para consulta de dados agrícolas, permitindo que agricultores consultem informações sobre plantações através de comandos de voz. A solução utiliza uma arquitetura similar à proposta neste trabalho, com API RESTful e autenticação segura.
-
-Outro exemplo relevante é o "AgriVoice", um sistema que integra assistentes virtuais com plataformas de gestão agrícola. O sistema permite consultas sobre clima, preços de commodities e status de equipamentos através de comandos de voz naturais.
-
-A análise dessas soluções similares confirma a viabilidade técnica da proposta e identifica oportunidades de melhoria, como o foco específico em apicultura e a utilização de tecnologias mais modernas para processamento de linguagem natural em português brasileiro.
-
 A integração de aplicações móveis e web com assistentes virtuais tem se tornado uma tendência crescente, permitindo que usuários acessem funcionalidades de aplicativos por meio de comandos de voz.
 Essa abordagem oferece vantagens significativas em termos de acessibilidade, conveniência e eficiência, sobretudo em contextos nos quais o uso de dispositivos móveis pode ser limitado.
 
@@ -105,11 +94,17 @@ Para mitigar esses riscos, é essencial implementar práticas de segurança adeq
 autenticação e autorização apropriadas, e monitoramento contínuo das atividades da Skill.
 
 
-\secao{Aplicações de Assistentes Virtuais na Agricultura e Apicultura}
+\secao{Soluções Similares}
 
 O setor agrícola tem adotado assistentes virtuais e interfaces de voz para tornar operações em campo mais eficientes e acessíveis, especialmente em situações onde manipuladores manuais ou telas são impraticáveis. Na apicultura, por exemplo, atividades como monitoramento da saúde das abelhas, produção de mel e análise de variáveis ambientais exigem acesso imediato a dados, frequentemente com as mãos ocupadas.
 
-Segundo o artigo “Agricultural Chatbot Voice Assistant Using NLP Techniques” (Rajanala et al., 2025), um assistente por voz agrícola permite que agricultores façam consultas sobre saúde do solo, previsões meteorológicas e controle de pragas de modo intuitivo, utilizando reconhecimento de voz e processamento de linguagem natural, o que facilita interações em ambientes remotos ou com uso das mãos impedido.
+Segundo o artigo "Agricultural Chatbot Voice Assistant Using NLP Techniques" (Rajanala et al., 2025), um assistente por voz agrícola permite que agricultores façam consultas sobre saúde do solo, previsões meteorológicas e controle de pragas de modo intuitivo, utilizando reconhecimento de voz e processamento de linguagem natural, o que facilita interações em ambientes remotos ou com uso das mãos impedido.
+
+A análise de soluções similares no mercado revela algumas implementações relevantes para o contexto deste trabalho. Embora não existam integrações específicas entre Alexa e aplicações de gestão apícola, há casos de sucesso em domínios relacionados que podem servir como referência.
+
+O aplicativo "FarmLogs" integra assistentes virtuais para consulta de dados agrícolas, permitindo que agricultores consultem informações sobre plantações através de comandos de voz. A solução utiliza uma arquitetura similar à proposta neste trabalho, com API RESTful e autenticação segura.
+
+Outro exemplo relevante é o "AgriVoice", um sistema que integra assistentes virtuais com plataformas de gestão agrícola. O sistema permite consultas sobre clima, preços de commodities e status de equipamentos através de comandos de voz naturais.
 
 \subsecao{Gestão Apícola Digital}
 
@@ -156,19 +151,9 @@ Para garantir uma integração bem-sucedida, é essencial:
     \item \textbf{Tratamento de erros}: Mensagens claras quando algo não funciona como esperado
 \end{itemize}
 
-\secao{Soluções Similares}
+\subsecao{Aplicações de Gestão Apícola}
 
-Nesta seção são apresentadas soluções existentes que possuem características similares à proposta deste trabalho, seja pela integração de assistentes virtuais com aplicações de gestão ou pela aplicação de tecnologias de voz em contextos agrícolas e apícolas.
-
-\subsecao{Assistentes Virtuais para Agricultura}
-
-Diversas soluções têm sido desenvolvidas para integrar assistentes virtuais com aplicações agrícolas. O trabalho de Rajanala et al. (2025) apresenta um assistente de voz agrícola que utiliza técnicas de processamento de linguagem natural para permitir que agricultores façam consultas sobre saúde do solo, previsões meteorológicas e controle de pragas através de comandos de voz naturais.
-
-Esta solução demonstra a viabilidade técnica de integrar assistentes virtuais com sistemas de gestão agrícola, oferecendo uma interface de voz intuitiva para acesso a informações críticas em ambientes de campo.
-
-\subsecao{Aplicações de Gestão Apícola com Interface de Voz}
-
-Embora ainda sejam limitadas, algumas soluções têm explorado a integração de tecnologias de voz com aplicações de gestão apícola. O aplicativo Pollen, objeto de integração deste trabalho, representa uma das soluções mais completas disponíveis no mercado para gestão digital de colmeias.
+Embora ainda sejam limitadas, algumas soluções têm explorado a gestão digital de colmeias. O aplicativo Pollen, objeto de integração deste trabalho, representa uma das soluções mais completas disponíveis no mercado para gestão digital de colmeias.
 
 Outras aplicações similares incluem:
 \begin{itemize}
@@ -191,17 +176,6 @@ O ecossistema Alexa Skills conta com diversas Skills focadas em produtividade e 
 \end{itemize}
 
 Essas Skills demonstram o potencial da plataforma Alexa para aplicações de gestão, servindo como referência para o desenvolvimento de interfaces de voz eficazes.
-
-\subsecao{Limitações das Soluções Existentes}
-
-As soluções existentes apresentam algumas limitações que justificam o desenvolvimento da proposta deste trabalho:
-
-\begin{itemize}
-    \item \textbf{Falta de integração específica}: Nenhuma solução oferece integração nativa entre assistentes virtuais e aplicações de gestão apícola
-    \item \textbf{Interface limitada}: A maioria das soluções apícolas existentes utiliza apenas interfaces gráficas tradicionais
-    \item \textbf{Comandos não especializados}: Skills existentes não possuem comandos específicos para terminologia e processos apícolas
-    \item \textbf{Contexto de uso inadequado}: Soluções existentes não consideram o contexto específico de uso em apiários
-\end{itemize}
 
 \subsecao{Diferenciais da Proposta}
 
