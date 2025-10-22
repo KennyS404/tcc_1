@@ -1,0 +1,82 @@
+% Quadros descritivos da estrutura de dados - Substituindo DER
+
+\begin{quadro}{Entidades e atributos do banco de dados relevantes para integração Alexa}{Elaborado pelo autor (2025)}
+\label{quad:entidades-atributos}
+\renewcommand{\arraystretch}{1.4}
+\small
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|p{7.5cm}|p{5.5cm}|}
+\hline
+\textbf{Entidade} & \textbf{Atributos} & \textbf{Descrição} \\ \hline
+
+\textbf{USER} & 
+\underline{id}, email, password, planType, status
+& 
+Armazena informações dos usuários do aplicativo Pollen que utilizarão a integração com Alexa \\ \hline
+
+\textbf{ENXAME} & 
+\underline{id}, userId, especie, estadoOrigem, localizacao, identificador, forcaEnxame, createddate
+& 
+Representa as colmeias gerenciadas pelo apicultor, principal entidade consultada via comandos de voz \\ \hline
+
+\textbf{ALIMENTACAO} & 
+\underline{id}, enxameId, tipo, quantidade, observacao, createddate
+& 
+Registra alimentações fornecidas aos enxames, pode ser consultada e registrada via Alexa \\ \hline
+
+\textbf{COLHEITA} & 
+\underline{id}, enxameId, quantidade, tipo, observacao, createddate
+& 
+Armazena informações sobre colheitas realizadas, principal métrica consultada via comandos de voz \\ \hline
+
+\textbf{MANEJO} & 
+\underline{id}, enxameId, tipo, descricao, createddate
+& 
+Registra atividades de manejo realizadas nas colmeias (divisão, troca de caixa, etc.) \\ \hline
+
+\textbf{REVISAO} & 
+\underline{id}, enxameId, tipo, observacao, createddate
+& 
+Armazena revisões periódicas realizadas nos enxames para verificação de saúde \\ \hline
+
+\textbf{DASHBOARD} & 
+\underline{id}, userId, totalEnxames, totalColheita, ultimaAtividade
+& 
+Consolida dados gerais do apiário, fornecendo resumo geral via comando de voz \\ \hline
+
+\end{tabular}
+}
+\end{quadro}
+
+\vspace{1em}
+
+\begin{quadro}{Relacionamentos entre as entidades do sistema}{Elaborado pelo autor (2025)}
+\label{quad:relacionamentos}
+\renewcommand{\arraystretch}{1.5}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|l|l|p{7cm}|}
+\hline
+\textbf{Entidade Origem} & \textbf{Relacionamento} & \textbf{Entidade Destino} & \textbf{Descrição} \\ \hline
+
+USER & possui (1:N) & ENXAME & 
+Um usuário pode possuir múltiplos enxames. A Alexa consulta os enxames do usuário autenticado. \\ \hline
+
+USER & visualiza (1:1) & DASHBOARD & 
+Cada usuário possui um dashboard único com estatísticas gerais do seu apiário. \\ \hline
+
+ENXAME & tem (1:N) & ALIMENTACAO & 
+Um enxame pode ter múltiplos registros de alimentação ao longo do tempo. \\ \hline
+
+ENXAME & produz (1:N) & COLHEITA & 
+Um enxame pode ter múltiplas colheitas registradas. Principal dado consultado via Alexa. \\ \hline
+
+ENXAME & recebe (1:N) & MANEJO & 
+Um enxame pode ter múltiplos manejos realizados (divisão, troca de caixa, etc.). \\ \hline
+
+ENXAME & inspecionado (1:N) & REVISAO & 
+Um enxame pode ter múltiplas revisões periódicas para verificação de saúde. \\ \hline
+
+\end{tabular}
+}
+\end{quadro}
+

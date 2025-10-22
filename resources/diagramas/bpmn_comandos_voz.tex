@@ -1,85 +1,25 @@
-% BPMN - Processo de Comandos de Voz Alexa
-\begin{figura}{BPMN - Processo de execução de comandos de voz na integração Alexa}{O Autor}
-\centering
-\begin{tikzpicture}[scale=0.8]
-% Definição de estilos
-\tikzset{
-  start/.style={circle, draw, fill=green!20, text width=1cm, text centered, minimum height=1cm},
-  end/.style={circle, draw, fill=red!20, text width=1cm, text centered, minimum height=1cm},
-  process/.style={rectangle, draw, fill=blue!20, text width=2.5cm, text centered, minimum height=0.8cm},
-  decision/.style={diamond, draw, fill=yellow!20, text width=2cm, text centered, minimum height=0.8cm},
-  gateway/.style={diamond, draw, fill=gray!20, text width=1.5cm, text centered, minimum height=0.8cm},
-  note/.style={rectangle, draw, fill=white, text width=2.5cm, text centered, minimum height=0.6cm}
-}
+% Quadro - Processo de Comandos de Voz Alexa
+\begin{quadro}{Processo de execução de comandos de voz na integração Alexa}{Elaborado pelo autor (2025)}
+\label{quad:fluxo-comandos-voz}
+\renewcommand{\arraystretch}{1.5}
+\small
+\begin{tabular}{|c|p{4cm}|p{8cm}|}
+\hline
+\textbf{Etapa} & \textbf{Processo} & \textbf{Descrição} \\ \hline
 
-% Eventos de início e fim
-\node[start] (start) at (0,8) {Início};
-\node[end] (end) at (0,0) {Fim};
+1 & Captura de Comando & O usuário fala um comando para o dispositivo Alexa. Exemplo: \textquotedblleft Alexa, pergunte ao Pollen quantos enxames eu tenho\textquotedblright \\ \hline
 
-% Processos principais
-\node[process] (voice_input) at (0,7) {Usuário fala\\comando para Alexa};
-\node[process] (alexa_process) at (0,6) {Alexa processa\\comando de voz};
-\node[process] (intent_recognition) at (0,5) {Reconhecimento de\\intenção (NLP)};
-\node[decision] (valid_intent) at (0,4) {Intenção\\válida?};
+2 & Reconhecimento de Voz & A Alexa reconhece e processa o comando utilizando processamento de linguagem natural (NLP) \\ \hline
 
-% Processos de validação
-\node[process] (auth_check) at (-3,3) {Verificar\\autenticação};
-\node[process] (permission_check) at (3,3) {Verificar\\permissões};
+3 & Validação do Comando & O sistema verifica se o comando solicitado é válido e está disponível na Skill Pollen. Se inválido, a Alexa fornece ajuda sobre comandos disponíveis \\ \hline
 
-% Gateway de paralelização
-\node[gateway] (parallel_gateway) at (0,2.5) {+};
+4 & Verificação de Autenticação & O sistema verifica se o usuário está autenticado e vinculado a uma conta Pollen. Se não autenticado, solicita vinculação da conta \\ \hline
 
-% Processos de execução
-\node[process] (api_call) at (-3,1.5) {Chamar API\\Pollen};
-\node[process] (data_processing) at (3,1.5) {Processar\\dados};
+5 & Chamada à API & Com o usuário autenticado, o sistema realiza chamada à API do Pollen para buscar os dados solicitados (enxames, colheitas, dashboard, etc.) \\ \hline
 
-% Gateway de sincronização
-\node[gateway] (sync_gateway) at (0,0.8) {+};
+6 & Processamento de Dados & Os dados retornados pela API são processados e formatados em linguagem SSML (Speech Synthesis Markup Language) para resposta em voz \\ \hline
 
-% Processos de resposta
-\node[process] (format_response) at (0,0.4) {Formatar\\resposta SSML};
+7 & Resposta ao Usuário & A Alexa fornece a resposta em voz ao usuário com as informações solicitadas de forma clara e objetiva \\ \hline
 
-% Processos de erro
-\node[process] (error_handling) at (-4,2) {Tratar erro\\e informar usuário};
-\node[process] (help_response) at (4,2) {Fornecer ajuda\\sobre comandos};
-
-% Fluxos principais
-\draw[->] (start) -- (voice_input);
-\draw[->] (voice_input) -- (alexa_process);
-\draw[->] (alexa_process) -- (intent_recognition);
-\draw[->] (intent_recognition) -- (valid_intent);
-
-% Fluxos de decisão
-\draw[->] (valid_intent) -- node[above] {Sim} (parallel_gateway);
-\draw[->] (valid_intent) -- node[left] {Não} (help_response);
-
-% Fluxos paralelos
-\draw[->] (parallel_gateway) -- (auth_check);
-\draw[->] (parallel_gateway) -- (permission_check);
-
-% Fluxos de sincronização
-\draw[->] (auth_check) -- (sync_gateway);
-\draw[->] (permission_check) -- (sync_gateway);
-
-% Fluxos de execução
-\draw[->] (sync_gateway) -- (api_call);
-\draw[->] (sync_gateway) -- (data_processing);
-
-% Fluxo final
-\draw[->] (api_call) -- (format_response);
-\draw[->] (data_processing) -- (format_response);
-\draw[->] (format_response) -- (end);
-
-% Fluxos de erro
-\draw[->] (help_response) -- (end);
-\draw[->] (error_handling) -- (end);
-
-% Anotações
-\node[note] (note1) at (-5,6) {Comando: \textquotedblleft Alexa, pergunte\\ao Pollen sobre\\meus enxames\textquotedblright};
-\node[note] (note2) at (5,4) {Exemplo de intenções:\\• ConsultarStatus\\• RegistrarAlimentacao\\• VerificarColheita};
-\node[note] (note3) at (-5,1) {API REST:\\GET /enxame/user/\{id\}\\POST /alimentacao};
-\node[note] (note4) at (5,1) {Processamento:\\• Validação de dados\\• Formatação de resposta\\• Geração de SSML};
-
-\end{tikzpicture}
-\label{fig:bpmn-comandos-voz}
-\end{figura}
+\end{tabular}
+\end{quadro}

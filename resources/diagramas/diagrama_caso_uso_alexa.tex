@@ -4,28 +4,28 @@
 \begin{tikzpicture}[scale=0.8]
 % Definição de estilos
 \tikzset{
-  actor/.style={rectangle, draw, fill=blue!20, text width=2cm, text centered, minimum height=1cm},
-  usecase/.style={ellipse, draw, fill=yellow!20, text width=2.5cm, text centered, minimum height=0.8cm},
-  system/.style={rectangle, draw, fill=green!20, text width=8cm, text centered, minimum height=6cm}
+  actor/.style={rectangle, draw, fill=blue!20, text width=2cm, align=center, minimum height=1cm},
+  usecase/.style={ellipse, draw, fill=yellow!20, text width=2.5cm, align=center, minimum height=0.8cm},
+  system/.style={rectangle, draw, fill=green!20, text width=12cm, align=center, minimum height=8cm}
 }
 
 % Sistema Pollen
-\node[system] (sistema) at (0,0) {\textbf{Sistema Pollen + Alexa}};
+% \node[system] (sistema) at (0,0) {\textbf{Sistema Pollen + Alexa}};
 
 % Atores
-\node[actor] (apicultor) at (-6,3) {Apicultor};
-\node[actor] (alexa) at (6,3) {Amazon Alexa};
+\node[actor] (apicultor) at (-9,0) {Apicultor};
+\node[actor] (alexa) at (9,0) {Amazon Alexa};
 
 % Casos de uso principais
-\node[usecase] (consultar_status) at (-3,2) {Consultar Status\\do Enxame};
-\node[usecase] (registrar_alimentacao) at (0,2) {Registrar\\Alimentação};
-\node[usecase] (verificar_colheita) at (3,2) {Verificar\\Colheita};
-\node[usecase] (consultar_manejo) at (-3,0) {Consultar\\Manejo};
-\node[usecase] (registrar_revisao) at (0,0) {Registrar\\Revisão};
-\node[usecase] (consultar_dashboard) at (3,0) {Consultar\\Dashboard};
-\node[usecase] (configurar_alexa) at (-3,-2) {Configurar\\Integração Alexa};
-\node[usecase] (gerenciar_comandos) at (0,-2) {Gerenciar\\Comandos de Voz};
-\node[usecase] (sincronizar_dados) at (3,-2) {Sincronizar\\Dados};
+\node[usecase] (consultar_status) at (-5,4) {Consultar Status\\do Enxame};
+\node[usecase] (registrar_alimentacao) at (0,4) {Registrar\\Alimentação};
+\node[usecase] (verificar_colheita) at (5,4) {Verificar\\Colheita};
+\node[usecase] (consultar_manejo) at (-4,-1) {Consultar\\Manejo};
+\node[usecase] (registrar_revisao) at (0,1) {Registrar\\Revisão};
+\node[usecase] (consultar_dashboard) at (4,-1) {Consultar\\Dashboard};
+\node[usecase] (configurar_alexa) at (-5,-4) {Configurar\\Integração Alexa};
+\node[usecase] (gerenciar_comandos) at (0,-4) {Gerenciar\\Comandos de Voz};
+\node[usecase] (sincronizar_dados) at (5,-4) {Sincronizar\\Dados};
 
 % Relacionamentos com Apicultor
 \draw[->] (apicultor) -- (consultar_status);
