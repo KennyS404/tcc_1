@@ -512,7 +512,8 @@
 \NewDocumentCommand\writestatus{m m}{}
 
 % Exibe uma lista de recursos
-\NewDocumentCommand\ut@toc{m}{\@starttoc{\@nameuse{ext@ut@#1}}}
+\NewDocumentCommand\ut@toc{m}{%
+  \expandafter\@starttoc\expandafter{\@nameuse{ext@ut@#1}}}
 
 % Formata a exibição de uma lista de recursos
 \NewDocumentCommand\ut@tocsection{m m}{%
@@ -549,7 +550,8 @@
   \par
   \begingroup
     \ut@singlespacing
-    \Hy@toclinkstart#1{#2\ut@dotfill#3}\Hy@toclinkend
+    \leavevmode
+    #1{#2}\ut@dotfill{#3}\par
   \endgroup}
 
 % Parametriza tipo de float
