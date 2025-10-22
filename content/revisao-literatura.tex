@@ -1,74 +1,72 @@
 \capitulo{Revisão da literatura}
 \label{cap:revisao-literatura}
 
-Este capítulo apresenta a revisão da literatura sobre fundamentos teóricos de assistentes virtuais, processamento de linguagem natural, Amazon Alexa Skills Kit, soluções similares e trabalhos relacionados à integração de assistentes virtuais com aplicações de gestão, com foco na área apícola.
-
 \secao{Fundamentos Teóricos}
 
 \subsecao{Assistentes Virtuais e Processamento de Linguagem Natural}
 
-Assistentes virtuais são sistemas computacionais que utilizam Processamento de Linguagem Natural (NLP) e reconhecimento de voz para interpretar comandos dos usuários e executar tarefas automatizadas. Segundo \textcite{rajanala2025}, esses sistemas combinam técnicas de reconhecimento de fala, análise semântica e síntese de voz para criar interfaces conversacionais naturais.
+Assistentes virtuais são sistemas computacionais que usam Processamento de Linguagem Natural (NLP) e reconhecimento de voz para interpretar comandos e executar tarefas automatizadas. \textcite{rajanala2025} explicam que esses sistemas combinam técnicas de reconhecimento de fala, análise semântica e síntese de voz para criar interfaces conversacionais naturais.
 
-O Processamento de Linguagem Natural é um campo da Inteligência Artificial que permite que computadores compreendam, interpretem e gerem linguagem humana de forma significativa. No contexto de assistentes virtuais, o NLP é responsável por transformar comandos de voz em ações executáveis pelo sistema, passando por etapas de reconhecimento automático de fala (ASR - Automatic Speech Recognition), compreensão de linguagem natural (NLU - Natural Language Understanding) e geração de linguagem natural (NLG - Natural Language Generation).
+O Processamento de Linguagem Natural é um campo da Inteligência Artificial que permite aos computadores compreender, interpretar e gerar linguagem humana. Em assistentes virtuais, o NLP transforma comandos de voz em ações executáveis, passando por etapas de reconhecimento automático de fala (ASR - Automatic Speech Recognition), compreensão de linguagem natural (NLU - Natural Language Understanding) e geração de linguagem natural (NLG - Natural Language Generation).
 
 \subsecao{Amazon Alexa Skills Kit}
 
-O Amazon Alexa Skills Kit (ASK) é um conjunto de ferramentas, APIs e documentação que permite desenvolvedores criarem habilidades personalizadas (skills) para o assistente virtual Alexa. Uma Skill é uma aplicação de voz que estende as capacidades nativas da Alexa, permitindo que ela execute tarefas específicas através de comandos de voz do usuário.
+O Amazon Alexa Skills Kit (ASK) é um conjunto de ferramentas, APIs e documentação que permite desenvolvedores criarem habilidades personalizadas (skills) para a Alexa. Uma Skill é uma aplicação de voz que estende as capacidades nativas da Alexa, permitindo que ela execute tarefas específicas através de comandos de voz.
 
-A arquitetura de uma Alexa Skill é composta por três componentes principais:
+A arquitetura de uma Alexa Skill possui três componentes principais:
 
 \begin{itemize}
-    \item \textbf{Modelo de Interação}: Define como usuários interagem com a Skill através de intents (intenções), utterances (frases que invocam intents) e slots (parâmetros variáveis nos comandos)
-    \item \textbf{Backend da Skill}: Implementado geralmente como uma função AWS Lambda ou endpoint HTTPS, processa as requisições da Alexa e retorna respostas apropriadas
-    \item \textbf{Account Linking}: Mecanismo de autenticação OAuth 2.0 que permite vincular contas de usuários de serviços terceiros à Skill
+    \item \textbf{Modelo de Interação}: Define como usuários interagem com a Skill através de intents (intenções), utterances (frases que invocam intents) e slots (parâmetros variáveis nos comandos).
+    \item \textbf{Backend da Skill}: Geralmente implementado como função AWS Lambda ou endpoint HTTPS, processa as requisições da Alexa e retorna respostas apropriadas.
+    \item \textbf{Account Linking}: Mecanismo de autenticação OAuth 2.0 que vincula contas de usuários de serviços terceiros à Skill.
 \end{itemize}
 
-O fluxo de processamento de um comando de voz na Alexa envolve: (1) captura do áudio pelo dispositivo Echo; (2) envio do áudio para servidores Amazon para processamento de NLP; (3) identificação do intent e extração de slots; (4) invocação do backend da Skill com os parâmetros identificados; (5) processamento da lógica de negócio; (6) retorno da resposta em formato JSON com SSML (Speech Synthesis Markup Language); (7) síntese de voz pela Alexa; e (8) reprodução da resposta ao usuário.
+O fluxo de processamento de um comando de voz ocorre em oito etapas: (1) captura do áudio pelo dispositivo Echo; (2) envio do áudio para servidores Amazon; (3) processamento de NLP e identificação do intent; (4) extração de slots; (5) invocação do backend da Skill; (6) processamento da lógica de negócio; (7) retorno da resposta em JSON com SSML (Speech Synthesis Markup Language); (8) síntese e reprodução da voz ao usuário.
 
 \subsecao{APIs RESTful e Autenticação JWT}
 
-APIs RESTful (Representational State Transfer) são interfaces de programação que seguem os princípios arquiteturais REST, utilizando métodos HTTP (GET, POST, PUT, DELETE) para realizar operações sobre recursos. No contexto da integração Alexa+Pollen, a API RESTful do aplicativo Pollen será acessada pela Skill para consultar e manipular dados apícolas.
+APIs RESTful (Representational State Transfer) são interfaces de programação que seguem os princípios arquiteturais REST, usando métodos HTTP (GET, POST, PUT, DELETE) para realizar operações sobre recursos. Na integração Alexa+Pollen, a Skill acessará a API RESTful do Pollen para consultar e manipular dados apícolas.
 
-JSON Web Token (JWT) é um padrão aberto (RFC 7519) para transmissão segura de informações entre partes como um objeto JSON. No sistema planejado, JWT será utilizado para autenticação e autorização, garantindo que apenas usuários autenticados possam acessar seus dados através da Alexa. O token JWT contém claims (declarações) sobre o usuário e é assinado digitalmente, permitindo verificação de integridade e autenticidade sem necessidade de armazenar sessões no servidor.
+JSON Web Token (JWT) é um padrão aberto (RFC 7519) para transmissão segura de informações entre partes. No sistema planejado, JWT será usado para autenticação e autorização, garantindo que apenas usuários autenticados acessem seus dados através da Alexa. O token JWT contém claims (declarações) sobre o usuário e é assinado digitalmente, permitindo verificação de integridade e autenticidade sem necessidade de armazenar sessões no servidor.
 
 \secao{Soluções Similares}
 
-O setor agrícola tem adotado assistentes virtuais e interfaces de voz para tornar operações em campo mais eficientes e acessíveis, especialmente em situações onde manipuladores manuais ou telas são impraticáveis. Na apicultura, por exemplo, atividades como monitoramento da saúde das abelhas, produção de mel e análise de variáveis ambientais exigem acesso imediato a dados, frequentemente com as mãos ocupadas.
+O setor agrícola tem adotado assistentes virtuais e interfaces de voz para tornar operações em campo mais eficientes e acessíveis. Na apicultura, atividades como monitoramento da saúde das abelhas, produção de mel e análise de variáveis ambientais exigem acesso imediato a dados, frequentemente com as mãos ocupadas.
 
-Segundo \textcite{rajanala2025}, um assistente por voz agrícola permite que agricultores façam consultas sobre saúde do solo, previsões meteorológicas e controle de pragas de modo intuitivo, utilizando reconhecimento de voz e processamento de linguagem natural, o que facilita interações em ambientes remotos ou com uso das mãos impedido.
+\textcite{rajanala2025} demonstram que um assistente por voz agrícola permite que agricultores façam consultas sobre saúde do solo, previsões meteorológicas e controle de pragas de modo intuitivo, facilitando interações em ambientes remotos ou quando as mãos estão ocupadas.
 
-A análise de soluções similares no mercado revela algumas implementações relevantes para o contexto deste trabalho. Embora não existam integrações específicas conhecidas entre Alexa e aplicações de gestão apícola, há casos de sucesso em domínios relacionados que podem servir como referência.
+Embora não existam integrações específicas entre Alexa e aplicações de gestão apícola, há casos de sucesso em domínios relacionados que servem como referência.
 
-Um exemplo significativo é o trabalho de \textcite{gento2019iot}, que desenvolveu um protótipo de agricultura inteligente baseado em tecnologias IOT. O sistema integra sensores para monitoramento de condições ambientais (temperatura, umidade, luz) e do solo, utilizando Raspberry Pi como unidade central de processamento. De forma similar à proposta deste trabalho, Gento Ribas implementou controle por voz através da Amazon Alexa, permitindo que usuários ativem dispositivos de irrigação e ventilação através de comandos de voz. O protótipo também utiliza o protocolo MQTT para comunicação com dispositivos wireless ESP32, demonstrando a viabilidade técnica de integrar assistentes virtuais com sistemas de gestão agrícola. Segundo \textcite{gento2019iot}, "voice is the easiest instruction to use" \cite[p. 45]{gento2019iot}, justificando a escolha da Alexa para controle hands-free em ambientes onde o uso de dispositivos móveis é limitado.
+\textcite{gento2019iot} desenvolveu um protótipo de agricultura inteligente baseado em tecnologias IOT. O sistema integra sensores para monitoramento de condições ambientais (temperatura, umidade, luz) e do solo, usando Raspberry Pi como unidade central de processamento. Similar à proposta deste trabalho, Gento Ribas implementou controle por voz através da Amazon Alexa, permitindo que usuários ativem dispositivos de irrigação e ventilação com comandos de voz. O protótipo usa o protocolo MQTT para comunicação com dispositivos wireless ESP32, demonstrando a viabilidade técnica de integrar assistentes virtuais com sistemas de gestão agrícola. \textcite{gento2019iot} afirma que "voice is the easiest instruction to use" \cite[p. 45]{gento2019iot}, justificando a escolha da Alexa para controle hands-free quando o uso de dispositivos móveis é limitado.
 
-Outro exemplo relevante é o RAImundo, assistente virtual com inteligência artificial generativa desenvolvido pela Embrapa em parceria com o Ministério da Agricultura e Pecuária (MAPA), o Ministério do Desenvolvimento Agrário e Agricultura Familiar (MDA) e a startup brasileira AZap.AI \cite{embrapa2024raimundo}. Lançado em 2024, o RAImundo oferece assistência técnica automatizada via WhatsApp para pequenos e médios agricultores, abordando temas como manejo agrícola, clima, mercado, pragas, solo e produção sustentável. A ferramenta utiliza linguagem natural e foi projetada com foco na inclusão digital, adaptando as respostas à realidade local dos agricultores. Diferentemente das soluções comerciais, o RAImundo é gratuito e desenvolvido com validação técnica da Embrapa, demonstrando o potencial de assistentes virtuais para democratizar o acesso à informação técnica no setor agrícola brasileiro.
+O RAImundo é outro exemplo relevante. Desenvolvido pela Embrapa em parceria com o Ministério da Agricultura e Pecuária (MAPA), o Ministério do Desenvolvimento Agrário e Agricultura Familiar (MDA) e a startup AZap.AI \cite{embrapa2024raimundo}, o assistente virtual usa inteligência artificial generativa. Lançado em 2024, oferece assistência técnica automatizada via WhatsApp para pequenos e médios agricultores, abordando temas como manejo agrícola, clima, mercado, pragas, solo e produção sustentável. A ferramenta usa linguagem natural e foi projetada para inclusão digital, adaptando as respostas à realidade local dos agricultores. Diferentemente das soluções comerciais, o RAImundo é gratuito e desenvolvido com validação técnica da Embrapa, demonstrando o potencial de assistentes virtuais para democratizar o acesso à informação técnica no setor agrícola brasileiro.
 
 \subsecao{Gestão Apícola Digital}
 
-A gestão apícola moderna envolve o monitoramento de múltiplos aspectos das colmeias, incluindo:
+A gestão apícola moderna envolve o monitoramento de múltiplos aspectos das colmeias:
 \begin{itemize}
-    \item \textbf{Monitoramento de saúde}: Verificação de sinais de doenças, parasitas e stress das abelhas
-    \item \textbf{Controle de produção}: Acompanhamento da produção de mel, pólen e outros produtos
-    \item \textbf{Gestão de enxames}: Controle de divisões, capturas e migrações de enxames
-    \item \textbf{Registro de colheitas}: Documentação de datas, quantidades e qualidade dos produtos
-    \item \textbf{Análise climática}: Correlação entre condições meteorológicas e comportamento das abelhas
+    \item \textbf{Monitoramento de saúde}: Verificação de sinais de doenças, parasitas e stress das abelhas.
+    \item \textbf{Controle de produção}: Acompanhamento da produção de mel, pólen e outros produtos.
+    \item \textbf{Gestão de enxames}: Controle de divisões, capturas e migrações de enxames.
+    \item \textbf{Registro de colheitas}: Documentação de datas, quantidades e qualidade dos produtos.
+    \item \textbf{Análise climática}: Correlação entre condições meteorológicas e comportamento das abelhas.
 \end{itemize}
 
-Aplicações móveis como o Pollen têm facilitado significativamente essas tarefas, permitindo que apicultores registrem e acessem informações sobre suas colmeias de forma organizada e eficiente.
+Aplicações móveis como o Pollen facilitam essas tarefas, permitindo que apicultores registrem e acessem informações sobre suas colmeias de forma organizada.
 
 \secao{Diferenciais da Proposta}
 
-Embora não existam integrações específicas conhecidas entre assistentes virtuais e aplicações de gestão apícola no mercado, a análise de soluções similares e trabalhos relacionados evidencia a viabilidade e os benefícios desta proposta. A solução planejada apresenta os seguintes diferenciais:
+Embora não existam integrações específicas entre assistentes virtuais e aplicações de gestão apícola, a análise de soluções similares evidencia a viabilidade desta proposta. A solução apresenta os seguintes diferenciais:
 
 \begin{itemize}
-    \item \textbf{Integração nativa}: Desenvolvimento específico para o aplicativo Pollen, diferentemente de soluções genéricas
-    \item \textbf{Comandos especializados}: Vocabulário adaptado para terminologia apícola brasileira
-    \item \textbf{Contexto de uso otimizado}: Interface de voz projetada para uso em ambientes de apiário com mãos ocupadas
-    \item \textbf{Funcionalidades específicas}: Comandos para consulta de status de enxames, registro de alimentação e verificação de colheitas
-    \item \textbf{Segurança e privacidade}: Implementação de autenticação robusta e controle de acesso adequado aos dados sensíveis
+    \item \textbf{Integração nativa}: Desenvolvimento específico para o Pollen, não uma solução genérica.
+    \item \textbf{Comandos especializados}: Vocabulário adaptado para terminologia apícola brasileira.
+    \item \textbf{Contexto otimizado}: Interface de voz projetada para uso em apiário com mãos ocupadas.
+    \item \textbf{Funcionalidades específicas}: Comandos para consulta de status de enxames, registro de alimentação e verificação de colheitas.
+    \item \textbf{Segurança e privacidade}: Autenticação robusta e controle de acesso adequado aos dados sensíveis.
 \end{itemize}
 
-Conforme demonstrado no Quadro \ref{quad:comparacao-apps-apicolas} (apresentado na Introdução), nenhum aplicativo de gestão apícola atual oferece integração com assistentes virtuais consolidados como Amazon Alexa, representando uma oportunidade única de inovação no setor.
+O Quadro \ref{quad:comparacao-apps-apicolas} (apresentado na Introdução) mostra que nenhum aplicativo de gestão apícola atual oferece integração com assistentes virtuais consolidados como Amazon Alexa, representando uma oportunidade de inovação no setor.
 
 
 
