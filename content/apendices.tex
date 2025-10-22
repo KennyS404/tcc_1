@@ -1,0 +1,270 @@
+% APÊNDICES
+\makeatletter
+\ut@section[cap:apendices]{ut@capitulo}{\bfseries\MakeUppercase}{Apêndices}
+\makeatother
+
+% Configuração de espaçamento
+\renewcommand{\baselinestretch}{1.5}\selectfont
+\setlength{\parskip}{0pt}
+
+\secao{Apêndice A - Questionário da Pesquisa com Usuários do Aplicativo Pollen}
+\label{apendice:questionario}
+
+Este apêndice apresenta o questionário aplicado aos usuários do aplicativo Pollen para validar a necessidade e interesse na integração com o assistente virtual Amazon Alexa. A pesquisa foi realizada através do Google Forms e enviada por e-mail para usuários ativos do aplicativo.
+
+\vspace{1em}
+
+\textbf{PESQUISA: POLLEN INTEGRAÇÃO COM ALEXA}
+
+\vspace{0.5em}
+
+\textbf{Objetivo:} Identificar o interesse dos usuários do aplicativo Pollen em uma integração com assistentes virtuais e mapear as funcionalidades mais desejadas.
+
+\vspace{1em}
+
+\textbf{Questão 1:} Você teria interesse em utilizar o aplicativo Pollen através de comandos de voz com assistentes virtuais como Alexa ou Google Assistant?
+
+\begin{itemize}
+    \item[($\,\,\,$)] Sim, tenho muito interesse
+    \item[($\,\,\,$)] Sim, tenho interesse moderado
+    \item[($\,\,\,$)] Talvez, dependendo das funcionalidades
+    \item[($\,\,\,$)] Não tenho interesse
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Questão 2:} Quais funcionalidades você gostaria de acessar por comandos de voz? (Múltipla escolha)
+
+\begin{itemize}
+    \item[($\,\,\,$)] Consultar idade da rainha de um enxame específico
+    \item[($\,\,\,$)] Verificar força/estado do enxame
+    \item[($\,\,\,$)] Consultar data da última divisão
+    \item[($\,\,\,$)] Ver quantidade de enxames de determinada espécie
+    \item[($\,\,\,$)] Consultar produção de mel de determinada espécie
+    \item[($\,\,\,$)] Receber notificações e lembretes de manutenção
+    \item[($\,\,\,$)] Registrar localização do meliponário
+    \item[($\,\,\,$)] Obter passo a passo de cuidados com a colmeia
+    \item[($\,\,\,$)] Consultar quantidade total de enxames
+    \item[($\,\,\,$)] Registrar datas de divisões realizadas
+    \item[($\,\,\,$)] Obter resumo geral do apiário
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Questão 3:} Qual assistente virtual você prefere ou possui?
+
+\begin{itemize}
+    \item[($\,\,\,$)] Amazon Alexa
+    \item[($\,\,\,$)] Google Assistant
+    \item[($\,\,\,$)] Ambos
+    \item[($\,\,\,$)] Não possuo nenhum
+    \item[($\,\,\,$)] Outro: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Questão 4:} Em quais situações você utilizaria comandos de voz para acessar informações do Pollen? (Múltipla escolha)
+
+\begin{itemize}
+    \item[($\,\,\,$)] Durante visitas ao apiário/meliponário
+    \item[($\,\,\,$)] Enquanto realizo manutenção nas colmeias
+    \item[($\,\,\,$)] Quando estou com as mãos ocupadas
+    \item[($\,\,\,$)] Para consultas rápidas no dia a dia
+    \item[($\,\,\,$)] Antes de ir ao apiário para planejar atividades
+    \item[($\,\,\,$)] Outro: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Questão 5:} Descreva outras funcionalidades ou comandos que você gostaria de ter disponíveis na integração com assistentes virtuais: (Resposta aberta)
+
+\vspace{3em}
+\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{3em}
+\noindent\rule{\textwidth}{0.4pt}
+
+\vspace{1em}
+
+\textbf{Questão 6:} Qual a importância de poder acessar informações do Pollen sem usar as mãos?
+
+\begin{itemize}
+    \item[($\,\,\,$)] Muito importante
+    \item[($\,\,\,$)] Importante
+    \item[($\,\,\,$)] Moderadamente importante
+    \item[($\,\,\,$)] Pouco importante
+    \item[($\,\,\,$)] Não é importante
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Resultados da Pesquisa:}
+
+\begin{itemize}
+    \item \textbf{Total de respondentes:} 5 usuários ativos do aplicativo Pollen
+    \item \textbf{Taxa de interesse:} 100\% (5/5) manifestaram interesse na integração
+    \item \textbf{Assistente preferido:} Amazon Alexa e Google Assistant
+    \item \textbf{Funcionalidades mais solicitadas:}
+    \begin{itemize}
+        \item Consulta sobre idade da rainha
+        \item Verificação da força do enxame
+        \item Data da última divisão
+        \item Quantidade de enxames por espécie
+        \item Produção de mel por espécie
+        \item Notificações e lembretes
+    \end{itemize}
+\end{itemize}
+
+\newpage
+
+\secao{Apêndice B - Exemplo de Estrutura de Código da Skill Alexa}
+\label{apendice:codigo-skill}
+
+Este apêndice apresenta um exemplo da estrutura de código planejada para a implementação da Skill Alexa integrada ao aplicativo Pollen, utilizando Node.js com TypeScript e seguindo as melhores práticas do Alexa Skills Kit.
+
+\vspace{1em}
+
+\begin{quadro}{JSON - Modelo de Interação da Skill Alexa}{Elaborado pelo autor}
+\label{quad:codigo-interaction-model}
+\begin{verbatim}
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "pollen",
+      "intents": [
+        {
+          "name": "ConsultaEnxamesIntent",
+          "slots": [],
+          "samples": [
+            "quantos enxames eu tenho",
+            "me mostre meus enxames",
+            "consultar meus enxames",
+            "quais são meus enxames",
+            "informações sobre meus enxames"
+          ]
+        },
+        {
+          "name": "ConsultaIdadeRainhaIntent",
+          "slots": [
+            {
+              "name": "enxame_id",
+              "type": "AMAZON.NUMBER"
+            }
+          ],
+          "samples": [
+            "qual a idade da rainha do enxame {enxame_id}",
+            "idade da rainha",
+            "me fale sobre a rainha do enxame {enxame_id}",
+            "quando nasceu a rainha"
+          ]
+        },
+        {
+          "name": "DashboardIntent",
+          "slots": [],
+          "samples": [
+            "me mostre o resumo",
+            "resumo do meu apiário",
+            "dashboard",
+            "como está meu apiário",
+            "estatísticas gerais"
+          ]
+        }
+      ]
+    }
+  }
+}
+\end{verbatim}
+\end{quadro}
+
+\newpage
+
+\secao{Apêndice C - Roteiro de Testes Planejados}
+\label{apendice:roteiro-testes}
+
+Este apêndice apresenta o roteiro detalhado dos testes planejados para validar a integração Alexa+Pollen com usuários reais do aplicativo.
+
+\vspace{1em}
+
+\textbf{C.1 - Formulário de Avaliação de Funcionalidades}
+
+O formulário a seguir será utilizado para avaliar se os requisitos funcionais foram atendidos:
+
+\begin{quadro}{Formulário de Avaliação de Funcionalidades}{Elaborado pelo autor}
+\label{quad:form-avaliacao-funcionalidades}
+\renewcommand{\arraystretch}{1.5}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|p{8cm}|c|c|c|}
+\hline
+\textbf{RF} & \textbf{Descrição da Funcionalidade} & \textbf{Atendida} & \textbf{Parcial} & \textbf{Não Atendida} \\ \hline
+RF001 & Autenticação de usuários via conta Pollen & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF002 & Consulta de informações sobre enxames & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF003 & Consulta de idade da rainha & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF004 & Verificação da força do enxame & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF005 & Consulta de data da última divisão & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF006 & Consulta por espécie específica & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF007 & Notificações e lembretes & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF008 & Registro de localização & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF009 & Orientações de cuidados (passo a passo) & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF010 & Registro de divisões & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF011 & Dashboard resumido & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF012 & Comandos de ajuda & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+RF013 & Configuração de preferências & ($\,\,\,$) & ($\,\,\,$) & ($\,\,\,$) \\ \hline
+\end{tabular}
+}
+\end{quadro}
+
+\vspace{1em}
+
+\textbf{Critério de Aceitação:} A solução será considerada funcional se atingir média igual ou superior a 7,0 conforme a fórmula:
+
+\begin{equation}
+\text{MédiaFunc} = \frac{(\sum \text{QtdA} + \sum \text{QtdEP} \times 0,5)}{N \times \text{QtdAva}} \times 10
+\end{equation}
+
+\newpage
+
+\textbf{C.2 - Formulário de Avaliação de Eficácia (Escala Likert)}
+
+\begin{quadro}{Formulário de Avaliação de Eficácia}{Elaborado pelo autor}
+\label{quad:form-avaliacao-eficacia}
+\renewcommand{\arraystretch}{1.5}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{|l|p{6cm}|c|c|c|c|c|}
+\hline
+\textbf{ID} & \textbf{Critério de Avaliação} & \textbf{CF} & \textbf{C} & \textbf{I} & \textbf{D} & \textbf{DF} \\ \hline
+E1 & A integração Alexa+Pollen facilita o acesso a informações durante o trabalho no apiário & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E2 & Os comandos de voz são intuitivos e fáceis de usar & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E3 & A Alexa reconhece corretamente os comandos em português brasileiro & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E4 & As respostas fornecidas pela Alexa são claras e úteis & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E5 & O tempo de resposta da Skill é adequado & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E6 & A integração reduz a necessidade de usar o celular durante o manejo & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E7 & A autenticação e vinculação de conta foi simples & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E8 & Recomendaria a integração para outros apicultores & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+E9 & A Skill atende às minhas necessidades de gestão apícola & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) & ($\,\,$) \\ \hline
+
+\end{tabular}
+}
+\end{quadro}
+
+\vspace{1em}
+
+\textbf{Legenda:}
+\begin{itemize}
+    \item \textbf{CF} - Concordo Fortemente (peso 5)
+    \item \textbf{C} - Concordo (peso 4)
+    \item \textbf{I} - Indeciso (peso 3)
+    \item \textbf{D} - Discordo (peso 2)
+    \item \textbf{DF} - Discordo Fortemente (peso 1)
+\end{itemize}
+
+\vspace{1em}
+
+\textbf{Critério de Aceitação:} A solução será considerada eficaz se atingir média igual ou superior a 3,5 conforme a fórmula:
+
+\begin{equation}
+\text{MédiaEfi} = \frac{(\sum \text{CF} \times 5 + \sum \text{C} \times 4 + \sum \text{I} \times 3 + \sum \text{D} \times 2 + \sum \text{DF} \times 1)}{N \times \text{QtdAva}}
+\end{equation}
+
+% Restaurar configurações padrão
+\renewcommand{\baselinestretch}{1.0}\selectfont
+\setlength{\parskip}{\baselineskip}
