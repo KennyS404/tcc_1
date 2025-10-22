@@ -1,7 +1,7 @@
 \capitulo{Introdução}
 \label{cap:introducao}
 
-A Amazon Alexa é uma das assistentes virtuais mais utilizadas no mundo, estando presente em mais de 100 milhões de dispositivos. 
+A Amazon Alexa é uma das assistentes virtuais mais utilizadas no mundo, estando presente em mais de 100 milhões de dispositivos \cite{amazon2019alexa100m}.
 Os dispositivos da linha Echo são os mais comuns para uso pessoal, oferecendo uma interface de voz natural para interação com diversos serviços. 
 No Brasil, o uso da Alexa cresceu 50\% em 2023, com mais de 2 bilhões de comandos de voz executados pelos usuários brasileiros, 
 demonstrando a rápida adoção desta tecnologia no país \cite{forbes2024}. Uma das funcionalidades oferecidas pela Alexa é o ecossistema ``Alexa Skills'', 
@@ -25,10 +25,10 @@ A integração de assistentes virtuais com aplicações de gestão empresarial t
 oferecendo interfaces de voz naturais para acesso a informações importantes. No entanto, a implementação dessa tecnologia no setor apícola 
 ainda é limitada, especialmente no contexto brasileiro, onde a apicultura representa uma atividade econômica significativa.
 
-Segundo Silva et al. (2021), o setor apícola brasileiro, apesar de possuir boas características de clima e flora propícias para o desenvolvimento, 
+Segundo \textcite{silva2021}, o setor apícola brasileiro, apesar de possuir boas características de clima e flora propícias para o desenvolvimento, 
 sofre com limitações no uso de ferramentas tecnológicas, o que afeta diretamente os níveis de produção. Os autores destacam que 
 "o desenvolvimento tecnológico limitado do setor apícola, contando com pouca inovação na utilização de ferramentas e métodos produtivos, 
-afeta diretamente a produção tanto em volume como em qualidade", revelando uma deficiência significativa na gestão básica de sistemas produtivos.
+afeta diretamente a produção tanto em volume como em qualidade" \cite[p. 10]{silva2021}, revelando uma deficiência significativa na gestão básica de sistemas produtivos.
 
 O problema central desta pesquisa reside na necessidade de facilitar o acesso a informações sobre colmeias durante o trabalho no apiário, 
 onde o uso de dispositivos móveis pode ser limitado devido às condições de trabalho, uso de equipamentos de proteção individual 
@@ -40,9 +40,9 @@ através de comandos de voz simples, permitindo consultas sobre produção de me
 e estatísticas de produtividade sem interromper o fluxo de trabalho. Esta solução representa uma inovação no setor apícola, 
 oferecendo uma interface mais natural e eficiente para gestão de colmeias. 
 
-A necessidade de ferramentas tecnológicas no setor apícola é corroborada por Silva et al. (2021), que desenvolveram um sistema baseado em 
+A necessidade de ferramentas tecnológicas no setor apícola é corroborada por \textcite{silva2021}, que desenvolveram um sistema baseado em 
 machine learning para apoio à decisão no gerenciamento de produção apícola, demonstrando que "torna-se importante o uso de mecanismos de 
-ordenamento, gestão e tomada de decisão" para uma melhor organização das atividades decorrentes da apicultura. A validação desta necessidade 
+ordenamento, gestão e tomada de decisão" \cite[p. 15]{silva2021} para uma melhor organização das atividades decorrentes da apicultura. A validação desta necessidade 
 foi confirmada através de pesquisa realizada com usuários do aplicativo Pollen, onde 100\% dos respondentes manifestaram interesse na integração, 
 demonstrando a relevância e potencial de adoção da solução proposta.
 
@@ -59,7 +59,7 @@ Nesta seção serão abordados os objetivos gerais e específicos a serem buscad
 \subsecao{Objetivo geral}
 \label{ssec:objetivo-geral}
 
-Propor o planejamento de uma integração entre o assistente virtual Amazon Alexa e o aplicativo Pollen: Gestão de Colmeias, permitindo consultas por voz sobre dados apícolas e facilitando o acesso a informações durante o trabalho no apiário.
+Planejar e desenvolver uma integração entre o assistente virtual Amazon Alexa e o aplicativo Pollen: Gestão de Colmeias, permitindo consultas por voz sobre dados apícolas e facilitando o acesso a informações durante o trabalho no apiário.
 
 \subsecao{Objetivos específicos}
 \label{ssec:objetivos-especificos}
@@ -69,50 +69,42 @@ Os objetivos específicos do projeto seguem a ordem cronológica de execução d
 \begin{itemize}
     \item Analisar a arquitetura e funcionalidades do aplicativo Pollen para identificar dados que podem ser consultados via voz.
     
-    \item Planejar o desenvolvimento de uma Alexa Skill personalizada utilizando o Amazon Alexa Skills Kit e Node.js.
+    \item Desenvolver uma Alexa Skill personalizada utilizando o Amazon Alexa Skills Kit e Node.js.
 
-    \item Propor o planejamento da comunicação entre a Alexa Skill e a API do aplicativo Pollen utilizando autenticação JWT.
+    \item Implementar a comunicação entre a Alexa Skill e a API do aplicativo Pollen utilizando autenticação JWT.
 
     \item Definir intents e utterances em português brasileiro para consultas sobre colmeias, produção de mel e atividades de manejo.
 
-    \item Planejar a implementação de respostas em formato SSML para melhor experiência do usuário com a assistente virtual.
+    \item Implementar respostas em formato SSML para melhor experiência do usuário com a assistente virtual.
 
-    \item Propor metodologia de testes da integração com usuários reais do aplicativo Pollen para validar a usabilidade e eficácia da solução.
+    \item Validar a integração através de testes com usuários reais do aplicativo Pollen para avaliar a usabilidade e eficácia da solução.
 \end{itemize}
 
-No Quadro 1 apresentam-se os verbos que auxiliam na formulação dos objetivos.
+No Quadro 1 apresenta-se uma comparação entre aplicativos de gestão apícola que oferecem funcionalidades de comandos por voz ou integração com assistentes virtuais, evidenciando a lacuna de mercado que a integração Alexa+Pollen visa preencher. As informações foram coletadas através de análise das páginas oficiais dos aplicativos e lojas de aplicativos (Google Play Store e Apple App Store) em outubro de 2025.
 
-\begin{quadro}{Verbos que auxiliam na construção de objetivos}{Adaptado do Manual de Orientações Metodológicas do Centro Universitário de Jaraguá do Sul – UNERJ}
-\label{quad:verbos-objetivos}
-\renewcommand{\arraystretch}{1.3}
+\begin{quadro}{Comparação de aplicativos de gestão apícola com funcionalidades de voz}{Elaborado pelo autor com base em análise de mercado de aplicativos apícolas (2025)}
+\label{quad:comparacao-apps-apicolas}
+\renewcommand{\arraystretch}{1.5}
 \resizebox{\textwidth}{!}{
-\begin{tabular}{|c|c|c|c|c|c|}
+\begin{tabular}{|l|c|c|c|c|c|}
     \hline
-    \textbf{Conhecimento} & \textbf{Compreensão} & \textbf{Aplicação} & \textbf{Análise} & \textbf{Síntese} & \textbf{Avaliação} \\ \hline
-    Definir & Compreender & Resolver & Identificar & Narrar & Sustentar \\
-    Enunciar & Codificar & Interpretar & Distinguir & Expor & Justificar \\
-    Citar & Deduzir & Expor & Descrever & Explicar & Criticar \\
-    Relatar & Converter & Redigir & Diferenciar & Sumariar & Valorizar \\
-    Referir & Descrever & Explicar & Relacionar & Esquematizar & Escolher \\
-    Detalhar & Identificar & Usar & Separar & Compilar & Selecionar \\
-    Expor & Definir & Manejar & Decompor & Construir & Verificar \\
-    Identificar & Demonstrar & Aplicar & Examinar & Formular & Constatar \\
-    Indicar & Distinguir & Empregar & Localizar & Compor & Comprovar \\
-    Marcar & Interpretar & Utilizar & Abstrair & Projetar & Estimar \\
-    Sublinhar & Explicar & Comprovar & Discriminar & Simplificar & Medir \\
-    Enumerar & Expor & Demonstrar & Detalhar & Classificar & Revisar \\
-    Listar & Exemplificar & Produzir & Detectar & Agrupar & Eleger \\
-    Registrar & Concretizar & Praticar & Omitir & Distribuir & Decidir \\
-    Especificar & Narrar & Relacionar & Dividir & Modificar & Concluir \\
-    Mostrar & Argumentar & Dramatizar & Especificar & Reacomodar & Precisar \\
-    Distinguir & Decodificar & Discriminar & Descobrir & Combinar & Provar \\
-    Reconhecer & Relacionar & Representar & Reorganizar & Gerar & Comparar \\
-    Definir & Extrapolar & Traçar & Estruturar & Opinar & Avaliar \\
-    Organizar & Opinar & Localizar & Planejar & Demonstrar & Categorizar \\
-    & Predizer & Operar & Conceber & Contrastar & Fundamentar \\
-    & Generalizar & Ilustrar & Programar & Julgar & \\
-    & Resumir & & & & \\
-\hline
+    \textbf{Aplicativo} & \textbf{Gestão de} & \textbf{Controle de voz} & \textbf{Integração} & \textbf{Idioma} & \textbf{Plataforma} \\
+    \textbf{} & \textbf{Colmeias} & \textbf{hands-free} & \textbf{Alexa/Google} & \textbf{PT-BR} & \textbf{} \\ \hline
+ 
+   
+    Apiary Book* & Sim & Sim (Premium) & Não & Limitado & Multi-plataforma \\ \hline
+   
+    Abelheiro** & Sim & Sim (in-app) & Não & Sim & Mobile \\ \hline
+    BeeHapp*** & Sim & Não & Não & Sim & Mobile \\ \hline
+    \textbf{Pollen +} & \textbf{Sim} & \textbf{Sim (Alexa)} & \textbf{Sim} & \textbf{Sim} & \textbf{Multi-plataforma} \\
+    \textbf{Alexa (Proposto)} & & & & & \\ \hline
 \end{tabular}
 }
+\raggedright
+\small
+*Apiary Book disponível em: https://www.apiarybook.com (Acesso em: 01 out. 2025)\\
+**Abelheiro disponível na Google Play Store (Acesso em: 01 out. 2025)\\
+***BeeHapp disponível na Google Play Store (Acesso em: 01 out. 2025)
 \end{quadro}
+
+Conforme demonstrado no Quadro \ref{quad:comparacao-apps-apicolas}, embora existam aplicativos de gestão apícola com funcionalidades de voz, nenhum deles oferece integração nativa com assistentes virtuais consolidados como Amazon Alexa ou Google Assistant. As soluções existentes utilizam sistemas próprios de reconhecimento de voz in-app, o que limita a experiência do usuário e a adoção da tecnologia. A proposta de integração Alexa+Pollen representa uma inovação no setor, oferecendo aos apicultores brasileiros acesso a informações através de um ecossistema amplamente utilizado e consolidado no mercado de assistentes virtuais.
