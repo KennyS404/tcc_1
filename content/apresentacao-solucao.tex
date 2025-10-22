@@ -1,16 +1,12 @@
 \capitulo{Apresentação da Solução}
 \label{cap:apresentacao-solucao}
 
-Este capítulo apresenta o planejamento da solução proposta para integração entre Amazon Alexa e o aplicativo Pollen, incluindo os requisitos funcionais e não funcionais planejados, os diagramas de modelagem conceitual do sistema planejado, os wireframes das interfaces propostas e os artefatos de planejamento desenvolvidos.
-
 \secao{Requisitos do Sistema}
 \label{sec:requisitos-sistema}
 
-Esta seção apresenta os requisitos funcionais e não funcionais planejados para a integração Alexa+Pollen, baseados na análise das necessidades dos apicultores usuários do aplicativo Pollen.
-
 \subsecao{Requisitos Funcionais}
 
-Os requisitos funcionais especificam as funcionalidades que o sistema deve oferecer para atender às necessidades dos usuários, baseados na pesquisa preliminar realizada com usuários do aplicativo Pollen. O Quadro \ref{quad:requisitos-funcionais} apresenta os 13 requisitos funcionais planejados para a integração Alexa+Pollen.
+Os requisitos funcionais especificam as funcionalidades que o sistema deve oferecer, baseados na pesquisa preliminar com usuários do Pollen. O Quadro \ref{quad:requisitos-funcionais} apresenta os 13 requisitos funcionais da integração Alexa+Pollen.
 
 \begin{quadro}{Requisitos Funcionais da integração Alexa+Pollen}{Elaborado pelo autor (2025)}
 \label{quad:requisitos-funcionais}
@@ -53,7 +49,7 @@ RF013 & Configuração de Usuário & O sistema deve permitir configurar preferê
 
 \subsecao{Requisitos Não Funcionais}
 
-Os requisitos não funcionais definem as restrições e qualidades que o sistema deve possuir. O Quadro \ref{quad:requisitos-nao-funcionais} apresenta os 8 requisitos não funcionais planejados, organizados por categoria e com critérios de aceitação claramente definidos.
+Os requisitos não funcionais definem as restrições e qualidades que o sistema deve possuir. O Quadro \ref{quad:requisitos-nao-funcionais} apresenta os 8 requisitos não funcionais, organizados por categoria com critérios de aceitação definidos.
 
 \begin{quadro}{Requisitos Não Funcionais da integração Alexa+Pollen}{Elaborado pelo autor (2025)}
 \label{quad:requisitos-nao-funcionais}
@@ -87,64 +83,54 @@ RNF008 & Confiabilidade & O sistema deve tratar erros adequadamente & Feedback a
 \secao{Modelagem do Sistema}
 \label{sec:modelagem-sistema}
 
-Esta seção apresenta os diagramas de modelagem conceitual planejados para a integração Alexa+Pollen, seguindo as etapas do modelo em cascata para o planejamento do sistema.
-
 \subsecao{Diagrama de Caso de Uso}
 
 O Diagrama de Caso de Uso apresenta as interações entre os atores (Apicultor e Amazon Alexa) e o sistema, definindo as funcionalidades principais da integração.
 
 \input{resources/diagramas/diagrama_caso_uso_alexa.tex}
 
-Conforme apresentado na Figura \ref{fig:caso-uso-alexa}, o sistema permite que apicultores interajam com o aplicativo Pollen através de comandos de voz, realizando consultas e registros de atividades apícolas de forma hands-free.
+A Figura \ref{fig:caso-uso-alexa} mostra que o sistema permite aos apicultores interagir com o Pollen através de comandos de voz, realizando consultas e registros de atividades apícolas de forma hands-free.
 
 \subsecao{Estrutura de Dados do Sistema}
 
-Esta subseção apresenta a estrutura de dados do sistema Pollen que será acessada pela integração com Alexa. A estrutura é composta por entidades principais que armazenam informações sobre usuários, enxames, atividades de manejo e produção apícola.
+A estrutura de dados do sistema Pollen é composta por entidades principais que armazenam informações sobre usuários, enxames, atividades de manejo e produção apícola.
 
 \input{resources/diagramas/quadros_estrutura_dados.tex}
 
-O Quadro \ref{quad:entidades-atributos} apresenta as sete entidades principais do banco de dados Pollen que serão acessadas pela Skill Alexa: User (usuários do aplicativo), Enxame (colmeias gerenciadas), Alimentacao (registros de alimentação), Colheita (produção de mel e derivados), Manejo (atividades de manejo), Revisao (inspeções periódicas) e Dashboard (estatísticas consolidadas). Cada entidade possui atributos específicos que armazenam as informações necessárias para a gestão apícola.
+O Quadro \ref{quad:entidades-atributos} apresenta as sete entidades principais do banco de dados Pollen acessadas pela Skill: User (usuários), Enxame (colmeias), Alimentacao (alimentação), Colheita (produção), Manejo (atividades), Revisao (inspeções) e Dashboard (estatísticas). Cada entidade possui atributos específicos para a gestão apícola.
 
-O Quadro \ref{quad:relacionamentos} detalha como essas entidades se relacionam entre si, demonstrando a estrutura de dados que permitirá à Alexa consultar informações de forma hierárquica e contextualizada. Por exemplo, quando o usuário solicitar informações sobre seus enxames, a Skill poderá acessar dados relacionados de alimentação, colheitas e revisões associadas a cada enxame específico.
+O Quadro \ref{quad:relacionamentos} detalha como essas entidades se relacionam, demonstrando a estrutura de dados que permite à Alexa consultar informações de forma hierárquica. Por exemplo, quando o usuário pedir informações sobre seus enxames, a Skill acessa dados relacionados de alimentação, colheitas e revisões de cada enxame.
 
 \secao{Interfaces do Sistema}
 \label{sec:interfaces-sistema}
 
-Esta seção apresenta os wireframes das interfaces de configuração da integração Alexa no aplicativo Pollen, desenvolvidos para demonstrar como os usuários irão interagir com as funcionalidades de integração de voz.
-
 \subsecao{Wireframe - Autorização}
 
-O primeiro wireframe apresenta a tela de autorização, onde o usuário concede permissões para que a Alexa acesse os dados do aplicativo Pollen.
+O wireframe de autorização mostra a tela onde o usuário concede permissões para que a Alexa acesse os dados do Pollen.
 
 \input{resources/diagramas/wireframe_configuracao_alexa.tex}
 
-Conforme apresentado na Figura \ref{fig:wireframe-autorizacao-alexa}, o usuário pode visualizar e autorizar as permissões necessárias para a integração funcionar adequadamente. As Figuras \ref{fig:wireframe-comandos-disponiveis} e \ref{fig:wireframe-testar-comandos} mostram respectivamente a lista de comandos disponíveis e a interface para testar os comandos de voz antes de usar com a Alexa.
+A Figura \ref{fig:wireframe-autorizacao-alexa} apresenta a tela onde o usuário visualiza e autoriza as permissões necessárias. As Figuras \ref{fig:wireframe-comandos-disponiveis} e \ref{fig:wireframe-testar-comandos} mostram a lista de comandos disponíveis e a interface para testar comandos antes de usar com a Alexa.
 
 \subsecao{Wireframes - Gerenciamento de Comandos}
 
-Os wireframes de gerenciamento apresentam as interfaces para visualizar todos os comandos disponíveis e gerenciar a conexão com a Alexa.
-
 \input{resources/diagramas/wireframe_comandos_alexa.tex}
 
-A Figura \ref{fig:wireframe-todos-comandos} exibe a tela com a listagem completa de todos os comandos de voz disponíveis na integração, permitindo que o usuário conheça todas as funcionalidades acessíveis por voz. Já a Figura \ref{fig:wireframe-desconectar-alexa} apresenta a interface para desconectar a integração com a Alexa, caso o usuário deseje revogar as permissões concedidas.
+A Figura \ref{fig:wireframe-todos-comandos} exibe a tela com todos os comandos de voz disponíveis, permitindo que o usuário conheça as funcionalidades acessíveis por voz. A Figura \ref{fig:wireframe-desconectar-alexa} apresenta a interface para desconectar a integração, caso o usuário deseje revogar as permissões.
 
 \secao{Fluxo de Processamento do Sistema}
 \label{sec:fluxo-processamento}
 
-Esta seção apresenta o processo de execução de comandos de voz na integração Alexa, detalhando o fluxo desde o comando do usuário até a resposta final.
-
 \subsecao{Processo de Execução de Comandos de Voz}
-
-O Quadro a seguir descreve de forma estruturada o processo completo de processamento de comandos de voz, desde a captura até a resposta ao usuário.
 
 \input{resources/diagramas/bpmn_comandos_voz.tex}
 
-O Quadro \ref{quad:fluxo-comandos-voz} apresenta as sete etapas do processo de execução de comandos de voz na integração Alexa+Pollen. O processo inicia com a captura do comando de voz pelo dispositivo Alexa, passa pelo reconhecimento de linguagem natural (NLP), validação do comando e autenticação do usuário. Após a autenticação bem-sucedida, o sistema realiza a chamada à API do Pollen para buscar os dados solicitados, processa esses dados formatando-os em SSML (Speech Synthesis Markup Language) e, finalmente, a Alexa retorna a resposta em voz ao usuário. Este fluxo garante que apenas usuários autenticados possam acessar informações sensíveis e que comandos inválidos sejam tratados adequadamente com mensagens de ajuda.
+O Quadro \ref{quad:fluxo-comandos-voz} apresenta as sete etapas do processo de execução de comandos de voz. O processo inicia com a captura do comando pelo dispositivo Alexa, passa pelo reconhecimento de linguagem natural (NLP), validação do comando e autenticação do usuário. Após a autenticação, o sistema chama a API do Pollen para buscar os dados solicitados, processa esses dados formatando-os em SSML (Speech Synthesis Markup Language) e retorna a resposta em voz. Este fluxo garante que apenas usuários autenticados acessem informações sensíveis e que comandos inválidos recebam mensagens de ajuda adequadas.
 
 \secao{Considerações Finais do Capítulo}
 
-A solução planejada representa uma integração inovadora entre assistentes virtuais e aplicações de gestão apícola, oferecendo aos apicultores uma forma eficiente e hands-free de acessar informações sobre suas colmeias durante o trabalho no apiário.
+A solução planejada representa uma integração inovadora entre assistentes virtuais e aplicações de gestão apícola, oferecendo aos apicultores uma forma eficiente e hands-free de acessar informações durante o trabalho no apiário.
 
-Os artefatos de planejamento apresentados neste capítulo demonstram a viabilidade técnica da integração proposta. O Diagrama de Caso de Uso ilustra as funcionalidades principais e as interações entre os atores do sistema. Os Quadros de estrutura de dados definem as entidades e relacionamentos que serão utilizados pela integração. Os Wireframes apresentam as interfaces de configuração que serão disponibilizadas aos usuários no aplicativo Pollen. Por fim, o Quadro de Processo de Comandos de Voz detalha as sete etapas de execução desde o comando até a resposta.
+Os artefatos de planejamento demonstram a viabilidade técnica da integração. O Diagrama de Caso de Uso ilustra as funcionalidades principais e interações entre os atores. Os Quadros de estrutura de dados definem as entidades e relacionamentos usados pela integração. Os Wireframes apresentam as interfaces de configuração no aplicativo Pollen. O Quadro de Processo de Comandos de Voz detalha as sete etapas de execução.
 
-O planejamento apresentado atende aos requisitos funcionais e não funcionais definidos na Seção \ref{sec:requisitos-sistema}, proporcionando uma base sólida para a futura implementação da solução no TCC 02. A integração planejada contribuirá significativamente para a eficiência da gestão apícola, permitindo acesso à informação através de comandos de voz naturais em português brasileiro.
+O planejamento atende aos requisitos funcionais e não funcionais da Seção \ref{sec:requisitos-sistema}, proporcionando base sólida para a futura implementação no TCC 02. A integração contribuirá para a eficiência da gestão apícola, permitindo acesso à informação através de comandos de voz naturais em português brasileiro.
