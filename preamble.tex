@@ -1,5 +1,17 @@
+\usepackage{morewrites}  % Resolver erro "No room for a new \write"
 \usepackage{adjustbox}
 \usepackage[labelfont=bf,labelsep=colon,justification=raggedright,singlelinecheck=false]{caption}
+
+% Definições de tamanhos de fonte adicionais
+\makeatletter
+\newcommand\tiny{\@setfontsize\tiny{6}{7}}
+\newcommand\small{\@setfontsize\small{10}{12}}
+\newcommand\large{\@setfontsize\large{14}{17}}
+\newcommand\Large{\@setfontsize\Large{17}{20}}
+\newcommand\LARGE{\@setfontsize\LARGE{20}{24}}
+\newcommand\huge{\@setfontsize\huge{24}{28}}
+\newcommand\Huge{\@setfontsize\Huge{28}{32}}
+\makeatother
 %h\usepackage[backend=biber, style=authoryear]{biblatex}
 
 % bibliotecas para tabelas
@@ -11,9 +23,10 @@
 
 % lib para simbolos matematicos
 \usepackage{amsmath}
+\usepackage{amssymb}  % Para \checkmark e outros símbolos
 \usepackage{float}
 \usepackage{placeins}
-\usepackage{enumitem}
+% \usepackage{enumitem}  % Comentado: conflita com a classe unoesc-thesis
 \RequirePackage{etoolbox}
 % formatação
 %\renewcommand{\arraystretch}{0.75}
@@ -27,10 +40,19 @@
 
 \usepackage{tikz}
 \usetikzlibrary{positioning, shapes.geometric, arrows.meta}
-\tikzstyle{caixa} = [rectangle, draw, fill=green!10, text centered, minimum height=1.2cm, minimum width=2.5cm]
-\tikzstyle{categoria} = [rectangle, draw, fill=red!20, text centered, minimum height=1.2cm, minimum width=3.5cm]
+\tikzstyle{caixa} = [rectangle, draw, fill=green!10, align=center, minimum height=1.2cm, minimum width=2.5cm]
+\tikzstyle{categoria} = [rectangle, draw, fill=red!20, align=center, minimum height=1.2cm, minimum width=3.5cm]
 \tikzstyle{seta} = [->, thick]
 
 \usepackage{pdflscape}  % ou graphicx + rotating
+
+% Configurações adicionais para hyperref - sumário e bookmarks sempre visíveis
+\hypersetup{
+    bookmarksopen=true,        % Abre os bookmarks automaticamente
+    bookmarksopenlevel=2,      % Nível de expansão dos bookmarks
+    colorlinks=false,          % Mantém links invisíveis no texto impresso
+    pdfpagemode=UseOutlines,   % Mostra o painel de bookmarks ao abrir o PDF
+    linktoc=all                % Cria links tanto no número quanto no texto do sumário
+}
 
 

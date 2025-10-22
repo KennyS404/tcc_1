@@ -27,3 +27,7 @@ Ou use sua IDE LaTeX preferida (TeXstudio, Overleaf, etc.)
 
 O documento compilado está disponível como `main.pdf`.
 
+
+
+
+
